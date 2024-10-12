@@ -1,0 +1,14 @@
+ Assignment –2
+
+Introducing Relational Databases.
+1) Which field of the Customers table is the primary key?
+	CNUM is the primary key in the customers table. Because it uniquely identifies a row.
+
+2) What is the 4th column of the Customers table?
+	4th column of customers table is RATING.
+
+3) What is another word for row? For column?
+	Columns are called Fields and row are called as Records.
+
+4) Why isn’t it possible to see the first five rows of a table?
+	
