@@ -1,0 +1,172 @@
+SQL Exercise 3
+
+1. Display all the Supplier names with the initial letter capital.
+mysql> select concat(upper(left(sname,1)), lower(substring(Sname,2))) as First
+LetterCapital from supplier;
++--------------------+
+| FirstLetterCapital |
++--------------------+
+| Missu              |
+| Kazrie             |
+| H&m                |
+| Mango              |
+| Zara               |
++--------------------+
+5 rows in set (0.00 sec)
+
+
+2. Display all the Supplier names in upper case.
+mysql> select upper(Sname) from supplier;
++--------------+
+| upper(Sname) |
++--------------+
+| MISSU        |
+| KAZRIE       |
+| H&M          |
+| MANGO        |
+| ZARA         |
++--------------+
+5 rows in set (0.00 sec)
+
+3. Display all the Supplier names in lower case.
+mysql> select lower(Sname) from supplier;
++--------------+
+| lower(Sname) |
++--------------+
+| missu        |
+| kazrie       |
+| h&m          |
+| mango        |
+| zara         |
++--------------+
+5 rows in set (0.00 sec)
+
+4. Display all the Supplier names padded to 25 characters, with spaces on the left.
+mysql> select lpad(Sname,25,' ') from supplier;
++---------------------------+
+| lpad(Sname,25,' ')        |
++---------------------------+
+|                     MissU |
+|                    Kazrie |
+|                       H&M |
+|                     Mango |
+|                      Zara |
++---------------------------+
+5 rows in set (0.00 sec)
+
+5. Display all the Supplier names (with ‘la’ replaced by ‘ro’).
+HINT: REPLACE.
+mysql> select sname from supplier;
++--------+
+| sname  |
++--------+
+| MissU  |
+| Kazrie |
+| H&M    |
+| Mango  |
+| Zara   |
+| Balau  |
++--------+
+6 rows in set (0.00 sec)
+
+mysql> select replace(sname,'la','ro') from supplier;
++--------------------------+
+| replace(sname,'la','ro') |
++--------------------------+
+| MissU                    |
+| Kazrie                   |
+| H&M                      |
+| Mango                    |
+| Zara                     |
+| Barou                    |
++--------------------------+
+6 rows in set (0.00 sec)
+
+
+6. Implement the above command such that ‘l’ is replaced with ‘r’ and ‘a’ is replaced with ‘o’.
+mysql> select sname from supplier;
++--------+
+| sname  |
++--------+
+| MissU  |
+| Kazrie |
+| H&M    |
+| Mango  |
+| Zara   |
+| Balau  |
++--------+
+6 rows in set (0.00 sec)
+
+mysql> select replace(sname,'la','ro') from supplier;
++--------------------------+
+| replace(sname,'la','ro') |
++--------------------------+
+| MissU                    |
+| Kazrie                   |
+| H&M                      |
+| Mango                    |
+| Zara                     |
+| Barou                    |
++--------------------------+
+6 rows in set (0.00 sec)
+
+
+7. Display the Supplier names and the lengths of the names.
+mysql> select sname, length(sname) as length from supplier;
++--------+--------+
+| sname  | length |
++--------+--------+
+| MissU  |      5 |
+| Kazrie |      6 |
+| H&M    |      3 |
+| Mango  |      5 |
+| Zara   |      4 |
+| Balau  |      5 |
++--------+--------+
+6 rows in set (0.00 sec)
+
+8. Use the soundex function to search for a supplier by the name of ‘BLOKE’.
+mysql> select sname from supplier
+    -> where soundex(sname) = soundex('bloke');
++-------+
+| sname |
++-------+
+| Bloke |
++-------+
+1 row in set (0.00 sec)
+
+9. Display the Supplier name and the status (as Ten, Twenty, Thirty, etc.).
+mysql> select sname,
+    -> case status
+    -> when 10 then 'Ten'
+    -> when 20 then 'Twenty'
+    -> when 40 then 'Forty'
+    -> when 50 then 'Fifty'
+    -> when 80 then 'Eighty'
+    -> when 80 then 'Eighty'
+    -> else 'Null'
+    -> end as status_words
+    -> from supplier;
++--------+--------------+
+| sname  | status_words |
++--------+--------------+
+| MissU  | Ten          |
+| Kazrie | Twenty       |
+| H&M    | Null         |
+| Mango  | Forty        |
+| Zara   | Fifty        |
+| Balau  | Eighty       |
+| Bloke  | Eighty       |
++--------+--------------+
+7 rows in set (0.00 sec)
+
+
+10. Display the current day (e.g. Thursday).
+mysql> select dayname("2024-10-12");
++-----------------------+
+| dayname("2024-10-12") |
++-----------------------+
+| Saturday              |
++-----------------------+
+1 row in set (0.00 sec)
+

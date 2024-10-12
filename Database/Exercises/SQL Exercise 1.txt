@@ -1,0 +1,223 @@
+SQL Exercise 1
+
+1. Create the table SEMP with the following structure:-
+EMPNO CHAR(4)
+EMPNAME CHAR(20)
+BASIC FLOAT
+DEPTNO CHAR(2)
+DEPTHEAD CHAR(4)
+
+ create table SEMP
+    -> (
+    -> EMPNO CHAR(4),
+    -> EMPNAME CHAR(20),
+    -> BASIC FLOAT,
+    -> DEPTNO CHAR(2),
+    -> DEPTHEAD CHAR(4));
+
+2. Create the table SDEPT with the following structure:-
+DEPTNO CHAR(2)
+DEPTNAME CHAR(15)
+
+mysql> CREATE TABLE SDEPT
+    -> (
+    ->  DEPTNO CHAR(2),
+    -> DEPTNAME CHAR(15));
+
+3. Insert into the SDEPT table the following values:-
+10, Development
+20, Training
+
+mysql> INSERT INTO SDEPT VALUES
+    -> ('10', 'Development'),
+    -> ('20', 'Training');
+
+4. Insert into the SEMP table the following values:-
+0001, SUNIL, 6000, 10
+0002, HIREN, 8000, 20
+0003, ALI, 4000, 10, 0001
+0004, GEORGE, 6000, 0002
+ 
+mysql> insert into semp values
+    -> ('0001', 'SUNIL', 6000, '10', ''),
+    -> ('0002', 'HIREN', 8000, '20', ''),
+    -> ('0003', 'ALI', 4000, '10', '0001'),
+    -> ('0004', 'GEORDE', 6000, '', '0002');
+
+Create S, P, J, SPJ tables as specified below and insert a few rows in each table:-
+SUPPLIER			- S
+(S#, Sname, Status, City)
+
+mysql> create table supplier(
+    -> `S#` int(4),
+    -> Sname char(10),
+    -> Status char(15),
+    -> City char(24));
+Query OK, 0 rows affected, 1 warning (0.07 sec)
+mysql> insert into supplier values
+    -> (10, 'MissU', '10', 'Alibag'),
+    -> (20, 'Kazrie', '20', 'Thane'),
+       (90, 'H&M', 30, 'London'),
+       (88, 'Mongo', 40, 'Paris'),
+       (43, 'Zara', 50, 'Athens');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+ 
+
+PARTS					- P
+(P#, Pname, Color, Weight, City)
+ 
+mysql> create table PARTS
+    -> (
+    -> `P#` int(4),
+    -> Pname char(10),
+    -> Color char(20),
+    -> Weight float,
+    -> City char(24));
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+mysql> insert into PARTS values
+    -> (001, 'Hammer', 'Black', 15.23, 'Alibag'),
+    -> (002, 'Sceizer', 'Pink', 2.91, 'Pen');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+ 
+
+
+PROJECTS			- P
+(J#, Jname, City)
+ 
+mysql> create table Projects
+    -> (
+    -> `J#` int(1),
+    -> Jname varchar(30),
+    -> City char(20));
+Query OK, 0 rows affected, 1 warning (0.04 sec)
+
+mysql> insert into  projects values
+    -> (1, 'Alarm Clock', 'Rajsthan'),
+    -> (5, 'Mobile Jammer', 'Banglore');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+ 
+
+
+ 
+5. Display all the data from the S table.
+mysql> select * from supplier;
++------+--------+--------+--------+
+| S#   | Sname  | Status | City   |
++------+--------+--------+--------+
+|   10 | MissU  | 10     | Alibag |
+|   20 | Kazrie | 20     | Thane  |
+|   90 | H&M    | 30     | London |
+|   88 | Mango  | 40     | Paris  |
+|   43 | Zara   | 50     | Athens |
++------+--------+--------+--------+
+5 rows in set (0.00 sec)
+
+
+6. Display only the S# and SNAME fields from the S table.
+mysql> select `S#`, Sname from supplier;
++------+--------+
+| S#   | Sname  |
++------+--------+
+|   10 | MissU  |
+|   20 | Kazrie |
++------+--------+
+2 rows in set (0.00 sec)
+
+7. Display the PNAME and COLOR from the P table for the CITY=”London”.
+mysql> select pname, color from parts where city = 'London';
++--------+--------+
+| pname  | color  |
++--------+--------+
+| Needle | Silver |
++--------+--------+
+
+8. Display all the Suppliers from London.
+mysql> select * from supplier where city = 'London';
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+|   90 | H&M   | 30     | London |
++------+-------+--------+--------+
+1 row in set (0.00 sec)
+
+9. Display all the Suppliers from Paris or Athens.
+mysql> select * from supplier where city = 'Paris' or city = 'Athens';
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+|   88 | Mango | 40     | Paris  |
+|   43 | Zara  | 50     | Athens |
++------+-------+--------+--------+
+2 rows in set (0.00 sec)
+
+
+10. Display all the Projects in Athens.
+
+
+11. Display all the Partnames with the weight between 12 and 14 (inclusive of both).
+mysql> select pname from parts where weight between 12 and 14;
++---------+
+| pname   |
++---------+
+| Needle  |
+| NutBold |
+| Skrew   |
++---------+
+3 rows in set (0.00 sec)
+
+12. Display all the Suppliers with a Status greater than or equal to 20.
+mysql> select * from supplier where status >= 20;
++------+--------+--------+--------+
+| S#   | Sname  | Status | City   |
++------+--------+--------+--------+
+|   20 | Kazrie | 20     | Thane  |
+|   90 | H&M    | 30     | London |
+|   88 | Mango  | 40     | Paris  |
+|   43 | Zara   | 50     | Athens |
++------+--------+--------+--------+
+4 rows in set (0.00 sec)
+
+13. Display all the Suppliers except the Suppliers from London.
+mysql> select * from supplier where city not IN ('London');
++------+--------+--------+--------+
+| S#   | Sname  | Status | City   |
++------+--------+--------+--------+
+|   10 | MissU  | 10     | Alibag |
+|   20 | Kazrie | 20     | Thane  |
+|   88 | Mango  | 40     | Paris  |
+|   43 | Zara   | 50     | Athens |
++------+--------+--------+--------+
+4 rows in set (0.00 sec)
+
+14. Display only the Cities from where the Suppliers come from.
+mysql> select city from supplier;
++--------+
+| city   |
++--------+
+| Alibag |
+| Thane  |
+| London |
+| Paris  |
+| Athens |
++--------+
+5 rows in set (0.00 sec)
+
+15. Assuming that the Part Weight is in GRAMS, display the same in MILLIGRAMS and KILOGRAMS.
+mysql> select weight, weight*1000 as MILLIGRAMS, weight*0.001 as KILOGRAM from
+ parts;
++--------+--------------------+-----------------------+
+| weight | MILLIGRAMS         | KILOGRAM              |
++--------+--------------------+-----------------------+
+|  15.23 | 15229.999542236328 |  0.015229999542236328 |
+|   2.91 | 2910.0000858306885 | 0.0029100000858306887 |
+|   1.03 | 1029.9999713897705 | 0.0010299999713897705 |
+|  13.03 | 13029.999732971191 |  0.013029999732971191 |
+|  12.03 | 12029.999732971191 |  0.012029999732971192 |
+|     14 |              14000 |                 0.014 |
++--------+--------------------+-----------------------+
+6 rows in set (0.00 sec)
+

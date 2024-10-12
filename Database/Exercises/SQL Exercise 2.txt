@@ -1,0 +1,84 @@
+SQL Exercise 2
+
+1. Display the Supplier table in the descending order of CITY.
+mysql> select * from supplier
+    -> order by city desc;
++------+--------+--------+--------+
+| S#   | Sname  | Status | City   |
++------+--------+--------+--------+
+|   20 | Kazrie | 20     | Thane  |
+|   88 | Mango  | 40     | Paris  |
+|   90 | H&M    | 30     | London |
+|   43 | Zara   | 50     | Athens |
+|   10 | MissU  | 10     | Alibag |
++------+--------+--------+--------+
+5 rows in set (0.00 sec)
+
+2. Display the Part Table in the ascending order of CITY and within the city in the ascending order of Part names.
+mysql> select * from parts
+    -> order by city asc, pname asc;
++------+---------+--------+--------+---------+
+| P#   | Pname   | Color  | Weight | City    |
++------+---------+--------+--------+---------+
+|    1 | Hammer  | Black  |  15.23 | Alibag  |
+|   52 | NutBold | Black  |  12.03 | America |
+|   19 | Needle  | Silver |  13.03 | Canada  |
+|    9 | Needle  | Silver |   1.03 | London  |
+|   82 | Skrew   | Blue   |     14 | Newark  |
+|    2 | Sceizer | Pink   |   2.91 | Pen     |
++------+---------+--------+--------+---------+
+6 rows in set (0.00 sec)
+
+3. Display all the Suppliers with a status between 10 and 20.
+mysql> select * from supplier
+    -> where status between 10 and 20;
++------+--------+--------+--------+
+| S#   | Sname  | Status | City   |
++------+--------+--------+--------+
+|   10 | MissU  | 10     | Alibag |
+|   20 | Kazrie | 20     | Thane  |
++------+--------+--------+--------+
+2 rows in set (0.00 sec)
+
+4. Display all the Parts and their Weight, which are not in the range of 10 and 15.
+mysql> select pname, weight from parts
+    -> where weight not between 10 and 15;
++---------+--------+
+| pname   | weight |
++---------+--------+
+| Hammer  |  15.23 |
+| Sceizer |   2.91 |
+| Needle  |   1.03 |
++---------+--------+
+3 rows in set (0.00 sec)
+
+5. Display all the Part names starting with the letter ‘S’.
+mysql> select pname from parts
+    -> where pname like 's%';
++---------+
+| pname   |
++---------+
+| Sceizer |
+| Skrew   |
++---------+
+2 rows in set (0.00 sec)
+
+6. Display all the Suppliers, belonging to cities starting with the letter ‘L’.
+mysql> select * from supplier
+    -> where city like 'L%';
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+|   90 | H&M   | 30     | London |
++------+-------+--------+--------+
+1 row in set (0.00 sec)
+
+7. Display all the Projects, with the third letter in JNAME as ‘n’.
+mysql> select * from projects
+    -> where Jname like '__n%';
++------+------------+------------+
+| J#   | Jname      | City       |
++------+------------+------------+
+|    6 | Santa Game | Santacruze |
++------+------------+------------+
+1 row in set (0.00 sec)
