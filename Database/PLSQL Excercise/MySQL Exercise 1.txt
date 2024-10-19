@@ -1,0 +1,227 @@
+MySQL Exercise 1
+1. Write a program that computes the perimeter and the area of a rectangle. Define your own values for the length and width. (Assuming that L and W are the length and width of the rectangle, Perimeter = 2*(L+W) and Area = L*W.
+mysql> delimiter //
+mysql> create procedure p()
+    -> begin
+    -> declare L float default 20.2;
+    -> declare W float default 30.2;
+    -> declare perimeter float;
+    -> declare area float;
+    -> set perimeter = 2*(L+W);
+    -> set area = L*W;
+    -> insert into tempp values(perimeter, area);
+    -> end //
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> call p()//
+Query OK, 1 row affected (0.01 sec)
+
+
+2. Write a program that declares an integer variable called num, assigns a value to it, and computes and inserts into the tempp table the value of the variable itself, its square, and its cube.
+
+mysql> delimiter //
+mysql> create procedure ssss()
+    -> begin
+    -> declare S int;
+    -> declare L int default 12;
+    -> declare C int;
+    -> set s = (L*L);
+    -> set C = (L*L*L);
+    -> insert into temppp values(L, s, c);
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call ssss()//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from temppp//
++-------+--------+----------+
+| value | square | cube_val |
++-------+--------+----------+
+|    12 |    144 |     1728 |
++-------+--------+----------+
+1 row in set (0.00 sec)
+
+
+3. Convert a temperature in Fahrenheit (F) to its equivalent in Celsius (C) and vice versa. The required formulae are:- C= (F-32)*5/9
+F= 9/5*C + 32
+
+mysql> delimiter //
+mysql> create procedure temperature()
+    -> begin
+    -> declare temp int default 20;
+    -> declare C int;
+    -> declare F int;
+    -> set C = (temp-32)*5/9;
+    -> set F = (9/5 * temp + 32);
+    -> insert into temppp values(temp, C, F);
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call temperature()//
+Query OK, 1 row affected (0.01 sec)
+
+
+
+4. Convert a number of inches into yards, feet, and inches. For example, 124 inches equals 3 yards, 1 foot, and 4 inches.
+
+ mysql>  DELIMITER //
+mysql>
+mysql> CREATE PROCEDURE convert_incht()
+    -> BEGIN
+    ->     DECLARE inches INT DEFAULT 124;
+    ->     DECLARE inches_per_feet INT DEFAULT 12;
+    ->     DECLARE feet_per_yard INT DEFAULT 3;
+    ->     DECLARE inches_per_yard INT;
+    ->     DECLARE yards INT;
+    ->     DECLARE feet INT;
+    ->     DECLARE inch INT;
+    ->     SET inches_per_yard = inches_per_feet * feet_per_yard;  
+    ->     SET yards = FLOOR(inches / inches_per_yard);
+    ->     SET inch = MOD(inches, inches_per_yard);  
+    ->     SET feet = FLOOR(inch / inches_per_feet);
+    ->     SET inch = MOD(inches, inches_per_feet); 
+    ->     INSERT INTO conversion VALUES (124, yards, feet, inch);
+    -> END //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call  convert_incht();
+    -> //
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from conversion//
++--------+-------+------+------+
+| inches | yards | feet | inch |
++--------+-------+------+------+
+|    124 |     3 |   10 |    4 |
+|    124 |     3 |    1 |    4 |
++--------+-------+------+------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+
+
+5. Write a program that enables a user to input an integer. The program should then state whether the integer is evenly 
+divisible by 5.
+
+mysql> delimiter //
+mysql> create procedure d()
+    -> begin
+    -> declare x int default 10;
+    -> if (x%5 = 0) then
+    -> insert into divvvv value(x, 'Divisible');
+    -> else insert into divvvv value(x, 'Not Divisible');
+    -> end if;
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call d()//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from divvvv//
++------+-----------+
+| srno | status    |
++------+-----------+
+|   10 | Divisible |
++------+-----------+
+1 row in set (0.00 sec)
+
+mysql> delimiter //
+mysql> create procedure nd()
+    -> begin
+    -> declare x int default 12;
+    -> if (x % 5 = 0) then
+    -> insert into divvvv values(x, 'Divisible');
+    -> else insert into divvvv values(x, 'Not Divisible');
+    -> end if;
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call nd()//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from divvvv;
+    -> //
++------+---------------+
+| srno | status        |
++------+---------------+
+|   10 | Divisible     |
+|   12 | Not Divisible |
++------+---------------+
+2 rows in set (0.00 sec)
+
+
+6. Your block should read in two real numbers and tell whether the product of the two numbers is equal to or greater than 100.
+
+
+mysql> delimiter //
+mysql> create procedure eq()
+    -> begin
+    -> declare x int default 20;
+    -> declare y int default 5;
+    -> declare r int;
+    -> set r = x * y;
+    -> if (r >= 100) then
+    -> insert into divvvv value(r, 'equal to 100');
+    -> else insert into divvvv value(r, 'Notequal to 100');
+    -> end if;
+    -> end //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call eq()//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from divvvv//
++------+---------------+
+| srno | status        |
++------+---------------+
+|   10 | Divisible     |
+|   12 | Not Divisible |
+|  100 | equal to 100  |
++------+---------------+
+3 rows in set (0.00 sec)
+
+
+mysql> delimiter //
+mysql> create procedure nequ()
+    -> begin
+    -> declare x int default 10;
+    -> declare y int default 2;
+    -> declare r int;
+    -> set r = x * y;
+    -> if (r >= 100) then
+    -> insert into divvvv values(r, 'Greater');
+    -> else insert into divvvv values(r, 'Smaller');
+    -> end if;
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call nequ();
+    -> //
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from divvvv//
++------+---------------+
+| srno | status        |
++------+---------------+
+|   10 | Divisible     |
+|   12 | Not Divisible |
+|  100 | equal to 100  |
+|  800 | greater       |
+|   20 | Smaller       |
++------+---------------+
+5 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+ 
