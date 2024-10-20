@@ -1,0 +1,184 @@
+MySQL Exercise 2
+
+1. Select from any table a number and determine whether it is within a given range (for example, between 1 and 10).
+mysql> delimiter //
+mysql> create procedure ran()
+    -> begin
+    -> declare x int;
+    -> select No into x from num
+    -> where No between 1 and 10
+    -> limit 1;
+    -> insert into numm values(x);
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call ran()//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from numm//
++----------+
+| numberss |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+
+
+2. Select from any table three positive integers representing the sides of a triangle, and determine whether they form a valid triangle. Hint: In a triangle, the sum of any two sides must always be greater than the third side.
+
+mysql> delimiter //
+mysql> create procedure tri()
+    -> begin
+    -> declare s1, s2, s3 int;
+    -> declare finished int default 0;
+    -> declare c1 cursor for select side1, side2, side3 from triangle;
+    -> declare continue handler for not found set finished = 1;
+    -> open c1;
+    -> pqr_loop : LOOP
+    -> fetch c1 into s1, s2, s3;
+    -> if finished then
+    ->          leave pqr_loop;
+    -> end if;
+    -> if (s1 + s2 > s3) and (s2 + s3 > s1) and (s1 + s3 > s2) then
+    ->          insert into result values('Valid Triangle');
+    -> else
+    ->          insert into result values('Invalid Triangle');
+    -> end if;
+    -> end LOOP;
+    -> close c1;
+    -> end; //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call tri();
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from result;
++------------------+
+| Status           |
++------------------+
+| Invalid Triangle |
+| Valid Triangle   |
+| Invalid Triangle |
++------------------+
+3 rows in set (0.00 sec)
+
+
+3. Check if a given a year is a leap year. The condition is:- year should be (divisible by 4 and not divisible by 100) or (divisible by 4 and divisible by 400.). The year should be Selected from some table.
+
+mysql> delimiter //
+mysql> create procedure leap()
+    -> begin
+    -> declare y int;
+    -> declare status int default 0;
+    -> declare c1 cursor for select year from years;
+    -> declare continue handler for not found set status = 1;
+    -> open c1;
+    -> pqr_loop : LOOP
+    -> fetch c1 into y;
+    -> if status then
+    ->  leave pqr_loop;
+    -> end if;
+    -> if(( y%4 = 0 ) and ( y%100 !=0 or y%400 = 0)) then
+    ->  insert into LeapOrNot values('Leap Year');
+    -> else
+    ->  insert into LeapOrNot values('Not a Leap Year');
+    -> end if;
+    -> end LOOP;
+    -> close c1;
+    -> end; //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call leap();
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from LeapOrNot;
++-----------------+
+| status          |
++-----------------+
+| Leap Year       |
+| Not a Leap Year |
+| Not a Leap Year |
+| Leap Year       |
+| Leap Year       |
++-----------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from years;
++------+
+| Year |
++------+
+| 2024 |
+| 1900 |
+| 1999 |
+| 1916 |
+| 2004 |
++------+
+5 rows in set (0.00 sec)
+
+
+4. Write a program that Selects from any table two character strings. Your program should then determine if one character string exists inside another character string.
+
+mysql> delimiter //
+mysql> create procedure checking()
+    -> begin
+    -> declare s1, s2 varchar(20);
+    -> declare status int default 0;
+    -> declare c1 cursor for select * from stringss;
+    -> declare continue handler for not found set status = 1;
+    -> open c1;
+    -> pqr_loop : LOOP
+    -> fetch c1 into s1, s2;
+    -> if status then
+    ->          leave pqr_loop;
+    -> end if;
+    -> if instr(s1, s2) > 0 then
+    ->          insert into checkString values(s1, s2, 'Exists');
+    -> else
+    ->          insert into checkString values(s1, s2, 'Not Exists');
+    -> end if;
+    -> end LOOP;
+    -> close c1;
+    -> end; //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call checking();
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from Stringss;
++--------------+---------+
+| string1      | string2 |
++--------------+---------+
+| Neha Patil   | Patil   |
+| Red Top      | Red     |
+| Ish Bin      | du      |
+| Vater Mutter | Katze   |
++--------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from checkString;
++--------------+---------+------------+
+| String1      | String2 | Status     |
++--------------+---------+------------+
+| Neha Patil   | Patil   | Exists     |
+| Red Top      | Red     | Exists     |
+| Ish Bin      | du      | Not Exists |
+| Vater Mutter | Katze   | Not Exists |
++--------------+---------+------------+
+4 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
