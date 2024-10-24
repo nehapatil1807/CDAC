@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration</title>
+    <style>
+      body {
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        background: linear-gradient(#c5e3f1, #f7c8dd);
+        width: 600px;
+        /* border: 2px solid rgb(9, 0, 0); */
+        height: 680px;
+        margin: 10px auto;
+      }
+      p {
+        padding: 2px;
+        margin: 4px;
+      }
+      input {
+        padding: 2px;
+        margin-left: 10px;
+        margin-right: 15px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-spacing: 0cap;
+        margin: 8px;
+      }
+      button {
+        padding: 5px;
+        margin-left: 200px;
+        margin-top: 15px;
+      }
+      #m {
+        background: linear-gradient(
+          rgba(197, 227, 241, 0.7),
+          rgba(247, 200, 221, 0.7)
+        );
+        background: linear-gradient(
+          rgba(197, 227, 241, 0.7),
+          rgba(247, 200, 221, 0.7)
+        );
+        height: 666px;
+        opacity: 5;
+        backdrop-filter: blur(2z00px);
+      }
+    </style>
+  </head>
+  <body
+    style="
+      background-image: url(college.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    "
+  >
+    <div id="m">
+      <h1 style="text-align: center">Student Registration Form</h1>
+      <p>FIRST NAME <input type="text" /> (max 30 characters a-z and A-Z)</p>
+      <p>LAST NAME <input type="text" /> (max 30 characters a-z and A-Z)</p>
+      <p>DATE OF BIRTH <input type="date" /></p>
+      <p>EMAIL ID <input type="email" /></p>
+      <p>MOBILE NUMBER <input type="email" /> (10 digit number)</p>
+      <p>
+        GENDER <input type="radio" id="Female" /><label for="Female"
+          >Female</label
+        ><input type="radio" id="Female" /><label for="Female">Male</label>
+      </p>
+      <p>
+        <label for="t">ADDRESS </label
+        ><textarea name="" id="t" rows="4"></textarea>
+      </p>
+      <p>CITY <input type="text" /> (max 30 characters a-z and A-Z)</p>
+      <p>PINCODE <input type="text" /> (6 DIGIT NUMBER)</p>
+      <p>STATE <input type="text" /> (max 30 characters a-z and A-Z)</p>
+      <p>COUNTRY <input type="text" /></p>
+      <form action="">
+        <p>
+          HOBBIES
+          <label class="checkbox-inline">
+            <input type="checkbox" value="" />Drawing
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="" />Singing
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="" />Dancing
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="" />Sketching
+          </label>
+        </p>
+      </form>
+      <form action="">
+        <p>QUALIFICATION</p>
+        <table style="width: 95%">
+          <thead>
+            <tr>
+              <th>Sr.No</th>
+              <th>Examination</th>
+              <th>Board</th>
+              <th>Percentage</th>
+              <th>Year of Passing</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Class X</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Class XII</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Graduation</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>a</td>
+              <td>Masters</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </thead>
+        </table>
+      </form>
+      <form action="">
+        <p>
+          COURSES
+          <label class="checkbox-inline">
+            <input type="checkbox" value="" />BSC
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="" />MSC
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="" />PHD
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="" />MBA
+          </label>
+        </p>
+      </form>
+      <button>Submit</button>
+      <button>Reset</button>
+    </div>
+  </body>
+</html>
