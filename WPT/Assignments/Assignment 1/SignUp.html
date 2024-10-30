@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      #container {
+        /* background-color: rgb(229, 104, 204); */
+        width: 450px;
+        height: 450px;
+        text-align: center;
+        padding: 42px;
+        margin: 80px auto;
+        background: linear-gradient(#ef6bbc, #d8ee82);
+      }
+      body {
+        font-size: 20px;
+        /* background: linear-gradient(#ef6bbc, #d8ee82); */
+      }
+
+      input {
+        width: 70%;
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 15px;
+      }
+      button {
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 15px;
+        width: 30%;
+        background: white;
+        color: #ef5350;
+        border: 2px solid #ef5350;
+        border-width: 1px;
+        cursor: pointer;
+        transition: background 0.4s;
+      }
+      button:hover {
+        background: #ef6bbc;
+        color: white;
+      }
+      a {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="heading">Sign Up</h1>
+      <form action="">
+        <input type="text" placeholder="First Name" />
+        <input type="text" placeholder="Last Name" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button type="Submit">Login</button>
+        <p>Already a member? <a href="#">Log In</a></p>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <style>
+      body {
+        background-color: #acd8f6;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        display: flex;
+        width: 80%;
+        max-width: 900px;
+        height: 500px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        width: 50%;
+      }
+      .sign-up-container {
+        background-color: #2980b9;
+        color: #fff;
+        text-align: center;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
+      input {
+        background-color: #eee;
+        border: none;
+        padding: 12px;
+        margin: 8px 0;
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #3498db;
+        border: none;
+        border-radius: 5px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container sign-in-container">
+        <form action="#">
+          <h1>Sign in</h1>
+          <br />
+
+          <input type="email" placeholder="Email" />
+          <br />
+          <input type="password" placeholder="Password" />
+          <br />
+          <a href="#">Forgot your password?</a>
+          <br />
+          <button>Sign In</button>
+        </form>
+      </div>
+      <div class="form-container sign-up-container">
+        <form action="#">
+          <h1>Create, Account!</h1>
+          <br />
+          <p>Sign up if you still don't have an account ...</p>
+          <br />
+          <button>Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
