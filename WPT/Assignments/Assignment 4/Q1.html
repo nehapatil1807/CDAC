@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 1</title>
+  </head>
+  <body>
+    <script>
+      function x(name) {
+        return name.toUpperCase();
+      }
+
+      function y(obj, callback) {
+        const v = callback(obj);
+        console.log(v);
+      }
+
+      y("Neha", x);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 5</title>
+  </head>
+  <body>
+    <script>
+      function fetchData(callback) {
+        setTimeout(() => {
+          try {
+            const c = Math.random() > 0.8;
+            if (c) {
+              const r = "Data fetched";
+              callback(null, r);
+            } else {
+              throw new Error("Failed to fetch the data");
+            }
+          } catch (error) {
+            console.error("Error", error.message);
+            callback(error.message, null);
+          }
+        }, 2000);
+      }
+      function processData(d, callback) {
+        setTimeout(() => {
+          const p = d.d.toLowerCase();
+          callback(p);
+        }, 1000);
+      }
+
+      fetchData((error, response) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(response);
+          processData(response, (pr) => {
+            console.log(pr);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
