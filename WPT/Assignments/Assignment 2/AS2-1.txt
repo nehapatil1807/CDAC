@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Online Food Delivery Service in India | MyOnlineMeal.com</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 1170px)"
+      href="css/phone.css"
+    />
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo">
+        <img src="img/logo3.jpeg" alt="" />
+      </div>
+      <ul>
+        <li class="items"><a href="#">Home</a></li>
+        <li class="items"><a href="#">Service</a></li>
+        <li class="items"><a href="#">About Us</a></li>
+        <li class="items"><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+    <section id="home">
+      <h1 class="h-primary">Welcome to MyOnlineMeal</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        nihil voluptates quo quae nisi sequi. Lorem ipsum dolor sit.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
+        dolor sit.
+      </p>
+      <button class="btn">Order Now</button>
+    </section>
+
+    <section id="services-container">
+      <h1 class="h-primaryServices">Our Services</h1>
+      <div id="services">
+        <div class="box">
+          <img src="img/pizza.jpeg" alt="" />
+          <h1 class="h-secondary">Food Catering</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
+            laboriosam numquam temporibus vel, quia blanditiis rem minus ullam
+            ex accusantium, culpa, quidem nulla soluta dolorem saepe
+          </p>
+        </div>
+        <div class="box">
+          <img src="img/prons.jpeg" alt="" />
+          <h1 class="h-secondary">Bulk Ordering</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
+            laboriosam numquam temporibus vel, quia blanditiis rem minus ullam
+            ex accusantium, culpa, quidem nulla soluta dolorem saepe
+          </p>
+        </div>
+        <div class="box">
+          <img src="img/deliveryLogo.jpeg" alt="" />
+          <h1 class="h-secondary">Food Ordering</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
+            laboriosam numquam temporibus vel, quia blanditiis rem minus ullam
+            ex accusantium, culpa, quidem nulla soluta dolorem saepe velit
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="clients">
+      <h1 class="c">Our Clients</h1>
+      <div id="OurClients">
+        <div class="c1">
+          <img src="img/microsoft1-removebg-preview.png" alt="" />
+        </div>
+        <div class="c4">
+          <img src="img/download__3_-removebg-preview.png" alt="" />
+        </div>
+        <div class="c2">
+          <img src="img/skype-removebg-preview.png" alt="" />
+        </div>
+        <div class="c3">
+          <img src="img/hp-removebg-preview.png" alt="" />
+        </div>
+        <div class="c4">
+          <img src="img/images__18_-removebg-preview.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section id="Contacts">
+      <h1 class="contactUs">Contact Us</h1>
+      <div id="cu">
+        <form action="">
+          <div class="form-group">
+            <label for="name">Name: </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Enter your name"
+            />
+            <br />
+            <label for="name">Address: </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Enter your address"
+            />
+            <br />
+            <label for="name">Phone No.: </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="+91 xxxxxxxxx"
+            />
+            <br />
+            <label for="name">Email Id: </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="xyz123@gmail.com"
+            />
+            <br />
+            <label for="name">Birth Date: </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="DD / MM / YYYY"
+            />
+
+            <button class="btn1">Submit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="center">
+        Copyright &copy; www.myOnlineMeal.com All rights reserved!
+      </div>
+    </footer>
+  </body>
+</html>

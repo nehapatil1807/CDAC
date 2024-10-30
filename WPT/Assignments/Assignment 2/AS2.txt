@@ -1,0 +1,302 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
+:root
+{
+    --navbar-height: 59px
+}
+
+#navbar
+{
+    display: flex;
+    align-items: center;
+}
+
+#logo
+{
+    margin: 10px 34px;
+}
+
+#logo img
+{
+    height: 59px;
+    margin: 3px 6px;
+}
+
+#navbar
+{
+    position: relative;
+}
+
+#navbar ul 
+{
+    display: flex;
+}
+
+#navbar::before
+{
+    content: "";
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+#navbar ul li 
+{
+    list-style-type: none;
+    font-size: 1.3rem;
+}
+
+#navbar ul li a
+{
+    color: aliceblue;
+    padding: 3px 22px;
+    display: block;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+#navbar ul li a:hover
+{
+    color: black;
+     background-color: rgb(252, 250, 250);
+}
+
+#home
+{
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    /* margin: 60px; */
+}
+
+#home::before
+{
+    content: "";
+    background: url('../img/plate2.jpeg')no-repeat center center/cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.89;     
+}
+
+#home h1
+{
+    color: rgb(9, 0, 0);
+    text-align: center;
+    text-shadow: 2px 2px 2px rgb(250, 172, 231);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#home p
+{
+    color: rgb(246, 242, 242);
+    text-align: center;
+    text-shadow: 2px 2px 1px rgb(18, 2, 14);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.h-primary
+{
+    font-size: 2.8rem;
+    padding: 12px;
+}
+.btn
+{
+    padding: 4px 15px;
+    margin: 25px;
+    font-size: 1.2rem;
+    border: 2px solid black ;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.btn1
+{
+    padding: 5px 15px;
+    margin: 30px 50px;
+    font-size: 1.2rem;
+    border: 2px solid black ;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.btn:hover
+{
+    color:rgb(248, 250, 248);
+    background-color: rgb(245, 134, 245);
+}
+
+.btn1:hover
+{
+    color:rgb(248, 250, 248);
+    background-color: rgb(245, 134, 245);
+}
+
+#services-container
+{
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+#services
+{
+    display: flex;
+}
+
+.h-primaryServices
+{
+    font-size: 2.8rem;
+    margin-top: 650px;
+    margin-bottom: 30px;
+}
+
+.box
+{
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+    padding: 20px;
+    height: 350px;
+    width: 400px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.box img
+{
+    margin-top: 10px;
+    width: 300px;
+    height: 200px;
+}
+
+.box h1
+{
+    cursor: pointer;
+    margin: 10px;
+    font-size: 30px;
+}
+
+#clients 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 480px;
+    height: 344px;
+    position: relative;
+}
+
+#clients::before
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+    background: url('../img/sandwitch.jpeg')no-repeat center center/cover;
+}
+
+#clients h1
+{
+    /* margin-bottom: 20px; */
+    font-size: 2.9rem;
+    margin: 40px;
+}
+
+#OurClients
+{
+    display: flex;
+}
+
+#OurClients img
+{
+    height: 124px;
+    margin: 5px;
+    padding: 34px;
+}
+ 
+#Contacts
+{
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    position: relative;
+    background: url('../img/images\ \(19\).jpeg')no-repeat center center/cover;
+} 
+
+#Contacts::before
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+}
+ 
+#Contacts h1
+{
+    margin-top: 50px;
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+}
+
+ 
+
+#name
+{
+    padding: 5px;
+    margin: 10px;
+    border: 3px solid black;
+    border-radius: 7px;
+    background-color: rgb(248, 221, 230);
+}
+
+.form-group label
+{
+    padding: 10px;
+     font-size: 18px;
+    text-align:end;
+    font-weight: bold;
+}
+
+.form-group input
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+footer
+{
+    background-color: black;
+    color: white;
+    padding: 9px 20px;
+    cursor: pointer;
+    text-align: center;
+}
