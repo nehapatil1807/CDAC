@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 2</title>
+    <style>
+      #h1 {
+        color: rgb(85, 27, 139);
+        margin-top: 50px;
+        margin-left: 630px;
+        font-family: "Times New Roman", Times, serif;
+      }
+      #f1 {
+        font-size: medium;
+        /* margin: 80px 560px; */
+        margin-top: 60px;
+        margin-left: 560px;
+      }
+      input {
+        font-size: medium;
+        width: 300px;
+        margin: 15px;
+        padding: 20px;
+        border-radius: 20px;
+        border: 1px solid black;
+      }
+      button {
+        background-color: rgb(203, 54, 241);
+        margin-left: 40px;
+        margin-top: 20px;
+        width: 300px;
+        height: 40px;
+        border-radius: 20px;
+        border: 1px solid black;
+      }
+      #f1 {
+        box-shadow: 1px 2px;
+        background-color: rgb(204, 162, 243);
+        height: 450px;
+        border: 1px;
+        border-radius: 50px;
+      }
+      #p1 {
+        font-size: large;
+        width: 450px;
+        height: 450px;
+        /* margin-top: 20px; */
+        /* background-color: rgb(204, 162, 243); */
+        /* padding: 10px; */
+        margin-left: 20px;
+        margin-top: 60px;
+        /* border: 1px solid #ccc; */
+      }
+      #d1 {
+        display: flex;
+        flex-direction: row;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="h1">Employee Form</h1>
+    <div id="d1">
+      <div id="f1">
+        <input id="first" type="text" placeholder="First Name" /><br />
+        <input id="last" type="text" placeholder="Last Name" /><br />
+        <input id="contact" type="text" placeholder="Contact No" /><br />
+        <input id="email" type="text" placeholder="Email Id" /><br />
+        <button onclick="fun()">Submit</button>
+      </div>
+      <div id="p1"></div>
+    </div>
+    <script>
+      function fun() {
+        const f = document.getElementById("first").value;
+        const l = document.getElementById("last").value;
+        const c = document.getElementById("contact").value;
+        const e = document.getElementById("email").value;
+
+        const o = document.getElementById("p1");
+        o.innerHTML = `
+            <h2>Your Submitted Information:</h2>
+            <p><b>First Name : </b>${f}</p>
+            <p><b>Last Name : </b>${l}</p>
+            <p><b>Contact No : </b>${c}</p>
+            <p><b>Email Id : </b>${e}</p>
+        `;
+      }
+    </script>
+  </body>
+</html>

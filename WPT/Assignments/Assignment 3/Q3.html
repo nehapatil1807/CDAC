@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 3</title>
+    <style>
+      body {
+        background: url("https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQLSkB9isGkdVyvd2nZewGeF7MQn7ouN5ouy3nFInLg6iUscVHndMVqccNQ2E1HD4h7C1qt3nTbMyTNJXM97U5-EKPCchDs0kPSDwL4Qw")
+          center center no-repeat;
+        background-size: cover;
+        height: 500px;
+      }
+
+      h1 {
+        font-size: 50px;
+        margin-top: 50px;
+        margin-left: 490px;
+      }
+      select {
+        background-color: rgb(236, 238, 240);
+        margin-top: 150px;
+        margin-left: 700px;
+        width: 150px;
+        color: rgb(1, 1, 1);
+        border: 0px;
+        height: 40px;
+        font-size: larger;
+        border: 1px solid black;
+        border-radius: 50px;
+      }
+      button {
+        font-size: larger;
+        border: 1px solid black;
+        border-radius: 50px;
+        color: rgb(1, 1, 1);
+        height: 40px;
+        width: 100px;
+        background-color: rgb(243, 240, 240);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Choose your favorite destination</h1>
+    <select name="d" id="de">
+      <option value="Maldives">Maldives</option>
+      <option value="London">London</option>
+      <option value="Newark">Newark</option>
+      <option value="singapore">Singapore</option>
+    </select>
+
+    <button onclick="remove()">Submit</button>
+
+    <script>
+      const c = document.getElementById("de");
+      function remove() {
+        if (c.options.length > 0) {
+          c.remove(c.selectedIndex);
+        } else {
+          alert("No item to remove");
+        }
+      }
+    </script>
+  </body>
+</html>

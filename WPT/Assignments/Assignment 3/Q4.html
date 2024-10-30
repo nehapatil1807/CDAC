@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 4</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      span {
+        color: black;
+      }
+      p {
+        margin: auto;
+        font-size: 35px;
+        width: 500px;
+        text-align: justify;
+        color: white;
+      }
+      .change-color {
+        color: green;
+      }
+      .h2 {
+        font-size: 35px;
+        color: blue;
+        margin-left: 150px;
+        margin-bottom: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="h2" class="h2">
+      [On mouse over here bold words of the following paragraph will be
+      highlighted]
+    </h2>
+    <p>
+      <span id="s1">We</span> have just started
+      <span id="s2">this </span> section for the users (<span id="s3"
+        >beginner
+      </span>
+      to intermediate) who <span id="s4">want </span>to work with
+      <span id="s5">various </span> JavaScript <span id="s6">problems </span>and
+      write scripts online to <span id="s7">test </span>their JavaScript<span
+        id="s8"
+        >skill</span
+      >.
+    </p>
+
+    <script>
+      const c = document.getElementById("h2");
+      const ch1 = document.getElementById("s1");
+      const ch2 = document.getElementById("s2");
+      const ch3 = document.getElementById("s3");
+      const ch4 = document.getElementById("s4");
+      const ch5 = document.getElementById("s5");
+      const ch6 = document.getElementById("s6");
+      const ch7 = document.getElementById("s7");
+      const ch8 = document.getElementById("s8");
+      function over() {
+        ch1.classList.add("change-color");
+        ch2.classList.add("change-color");
+        ch3.classList.add("change-color");
+        ch4.classList.add("change-color");
+        ch5.classList.add("change-color");
+        ch6.classList.add("change-color");
+        ch7.classList.add("change-color");
+        ch8.classList.add("change-color");
+      }
+      c.addEventListener("mouseover", over);
+    </script>
+  </body>
+</html>
