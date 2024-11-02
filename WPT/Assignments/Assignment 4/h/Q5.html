@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 5</title>
+</head>
+<body>
+    <script>
+        const p1 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve(10);
+            },3000)
+        });
+
+        const p2 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve(20);
+            },5000)
+        });
+        
+         Promise.all([p1,p2]).then((val)=>{
+            const fv = val[0];
+            const sv = val[1];
+            console.log(val);
+            console.log(fv,sv);
+            console.log(fv,sv);
+         }) ;
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1</title>
+</head>
+<body>
+    <script>
+        console.log("Program Strarted");
+        const myPromise = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("Program completed");
+            }, 3000);
+        });
+        console.log(myPromise);
+        console.log("Program in progress..");
+        myPromise.then((value)=>{
+            console.log(value);
+        });
+    </script>
+</body>
+</html>
