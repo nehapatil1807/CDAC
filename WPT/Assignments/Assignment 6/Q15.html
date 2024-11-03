@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function p(n){
+            const e = n.filter(n=>n%2===0);
+            const d = e.map(n=>n*2);
+            const t = d.reduce((a,c)=>a+c,0);
+            return t;
+        }
+        const arr = [1,2,4,5,6,7,45,46];
+        const r = p(arr);
+        console.log(r);
+    </script>
+</body>
+</html>

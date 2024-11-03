@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const tax = 0.5;
+        let cart = [];
+        function item(name,price,qty){
+            let i = {name,price,qty};
+            cart.push(i);
+            console.log(`${qty} ${name}(s) added to cart.`);
+        }
+        function total(){
+            let t = 0;
+            for(let i of cart){
+                t += i.price * i.qty;
+            }
+            return t;
+        }
+        function CTWT(){
+            const t = total();
+            const TWT = t + t * tax;
+            return TWT; 
+        }
+        function display(){
+            console.log("Items of cart are : ");
+            for(var i=0;i<cart.length;i++){
+                console.log(`${cart[i].qty} ${cart[i].name} for Rs. ${cart[i].price} each`);
+            }
+            console.log(`${total()}`);
+            console.log(`${CTWT()}`);
+        }
+        item("Cake",8,3);
+        item("Ice-cream",6,5);
+        display();
+    </script>
+</body>
+</html>

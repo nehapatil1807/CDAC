@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const items = [{name:"Cake",price:10,qty:2},{name:"Soda",price:20,qty:5}];
+        let t = 0;
+        items.forEach(i =>{
+            t += i.price*i.qty;
+        })
+        console.log("Total Price is :",t);
+    </script>
+</body>
+</html>
