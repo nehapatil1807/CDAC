@@ -498,4 +498,79 @@ Focuses on designing the system by defining the relationships, responsibilities,
 
 ---
 
+# Introduction to Agile Development Model
+
+The **Agile Development Model** is an iterative and incremental approach to software development that emphasizes flexibility, customer collaboration, and rapid delivery of functional software. Agile divides the project into small iterations called **sprints**, typically lasting 1-4 weeks, with continuous feedback and improvements.
+
+---
+
+## Key Principles of Agile
+
+1. **Customer Collaboration Over Contract Negotiation**: Engaging with customers throughout the process to understand their needs.
+2. **Responding to Change Over Following a Plan**: Adapting to changing requirements at any stage of development.
+3. **Working Software Over Comprehensive Documentation**: Delivering functional software frequently.
+4. **Individuals and Interactions Over Processes and Tools**: Prioritizing teamwork and communication.
+
+---
+
+## Process of Agile Development
+
+1. **Concept/Idea**: Identify the project's high-level requirements and goals.
+2. **Iteration Planning**: Plan a sprint or iteration, defining specific tasks and features to implement.
+3. **Development and Testing**: Code, test, and integrate the features in small increments.
+4. **Review and Feedback**: Demonstrate the work done to stakeholders and gather feedback.
+5. **Release**: Deliver the incrementally developed product to users.
+6. **Repeat**: Plan the next sprint and iterate until the project is complete.
+
+---
+
+## Real-Time Example: E-commerce Website Development
+
+- **Iteration 1**: Create a basic product listing page with search functionality.
+- **Iteration 2**: Add user registration and login features.
+- **Iteration 3**: Implement a shopping cart and checkout process.
+- **Iteration 4**: Add payment gateway integration.
+- **Iteration 5**: Launch the website and gather user feedback for improvements.
+
+---
+
+## Diagram: Agile Development Process
+
+```mermaid
+graph TD
+    A[Concept/Idea] --> B[Iteration Planning]
+    B --> C[Development and Testing]
+    C --> D[Review and Feedback]
+    D --> E[Release]
+    E --> F{Is Project Complete?}
+    F -- No --> B
+    F -- Yes --> G[Final Product]
+```
+
+---
+
+## Flowchart of Agile Workflow
+
+![Agile Workflow](https://via.placeholder.com/800x400?text=Agile+Workflow+Diagram)
+
+---
+
+## Advantages of Agile
+
+1. Faster time-to-market.
+2. Increased customer satisfaction.
+3. Enhanced team collaboration.
+4. Improved adaptability to change.
+
+---
+
+## Disadvantages of Agile
+
+1. Requires close collaboration, which may not suit all teams.
+2. Difficult to predict costs and timelines.
+3. Less emphasis on detailed documentation.
+
+---
+ 
+
 
