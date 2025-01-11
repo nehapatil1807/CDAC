@@ -156,4 +156,128 @@ SDLC is a step-by-step process for designing, developing, and maintaining softwa
 
 ---
  
+# Requirements Engineering
+
+Requirements engineering is the process of defining, documenting, and maintaining the requirements for a software system. It ensures that the software meets the needs of stakeholders while addressing feasibility and technical constraints.
+
+---
+
+## 1. Types of Requirements
+Requirements are categorized into three main types:
+
+### (a) **Functional Requirements**
+- Define what the system should do.
+- Focus on specific functionalities or features.
+  
+  **Real-Time Example**:
+  - In an online food delivery app: 
+    - Users should be able to search for restaurants.
+    - Place orders.
+    - Track deliveries in real-time.
+
+### (b) **Non-Functional Requirements**
+- Define the quality attributes or constraints of the system, such as performance, scalability, and security.
+
+  **Real-Time Example**:
+  - The food delivery app must:
+    - Load within 3 seconds.
+    - Handle up to 100,000 users simultaneously.
+    - Ensure secure payment transactions using encryption.
+
+### (c) **Domain Requirements**
+- Specific to the business or domain in which the software operates.
+  
+  **Real-Time Example**:
+  - For a banking system:
+    - Support multi-currency transactions.
+    - Adhere to regulatory compliance like GDPR or PCI DSS.
+
+---
+
+## 2. Steps Involved in Requirements Engineering
+The process involves several systematic steps:
+
+### Step 1: **Elicitation**
+- Gathering requirements from stakeholders (users, clients, business owners).
+
+  **Real-Time Example**:
+  - For an e-commerce website:
+    - Conduct interviews with customers to understand their shopping preferences.
+    - Hold brainstorming sessions with stakeholders for feature ideas.
+
+### Step 2: **Analysis**
+- Refining and prioritizing the gathered requirements to ensure they are feasible and necessary.
+
+  **Real-Time Example**:
+  - Identify that:
+    - "Product recommendations" are a high-priority feature.
+    - "Multiple language support" can be deferred to a later phase.
+
+### Step 3: **Specification**
+- Documenting requirements in a clear and concise manner, often using tools like use case diagrams or user stories.
+
+  **Real-Time Example**:
+  - Write user stories like:
+    - "As a customer, I want to add items to my shopping cart so that I can purchase multiple items at once."
+
+### Step 4: **Validation**
+- Ensuring that the requirements accurately represent stakeholder needs.
+
+  **Real-Time Example**:
+  - Conduct review meetings with stakeholders to confirm that features like "cash on delivery" meet their expectations.
+
+### Step 5: **Management**
+- Continuously tracking, updating, and managing changes to requirements.
+
+  **Real-Time Example**:
+  - If stakeholders request "live chat support," update the documentation and reallocate resources to implement this feature.
+
+---
+
+## 3. Requirement Analysis Modelling
+Requirement analysis modeling helps to represent requirements visually to enhance understanding and communication. Common techniques include:
+
+### (a) **Use Case Diagrams**
+- Represent interactions between users (actors) and the system.
+
+  **Real-Time Example**:
+  - In a library management system, a use case diagram shows:
+    - Users borrowing books.
+    - Admin adding or removing books.
+
+### (b) **Data Flow Diagrams (DFD)**
+- Show how data flows within the system.
+
+  **Real-Time Example**:
+  - For a banking system:
+    - A DFD illustrates how customer information flows from login to transaction processing and account updates.
+
+### (c) **Entity-Relationship Diagrams (ERD)**
+- Define relationships between data entities.
+
+  **Real-Time Example**:
+  - For an e-commerce app:
+    - An ERD shows relationships between customers, orders, and products.
+
+### (d) **Prototypes**
+- Create a visual representation of the system’s UI to gather feedback early.
+
+  **Real-Time Example**:
+  - Create a prototype of a mobile banking app to show stakeholders how the "transfer money" feature will look and work.
+
+---
+
+## Summary Table
+
+| **Step**              | **Description**                                   | **Real-Time Example**                          |
+|-----------------------|--------------------------------------------------|-----------------------------------------------|
+| **Elicitation**        | Gathering requirements                          | Customer interviews for an e-commerce app     |
+| **Analysis**           | Refining and prioritizing                       | High-priority: Recommendations feature        |
+| **Specification**      | Documenting requirements                        | User stories for shopping cart functionality  |
+| **Validation**         | Confirming requirements with stakeholders       | Review meetings for "cash on delivery"        |
+| **Management**         | Tracking and updating requirements              | Adding "live chat support" to the backlog     |
+
+---
+
+Let me know if there’s anything else you’d like to add or modify!
 
