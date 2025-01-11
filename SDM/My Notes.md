@@ -693,3 +693,42 @@ In a software project for healthcare management, regular meetings between develo
 +------------------------+
 ```
 
+# Agile Web Development Tools
+
+## 1. Jira
+- **Purpose**: Task and issue tracking.
+- **Example**: Managing tasks for an e-commerce site.
+- **Flow**: Backlog → Sprint → Development → Testing → Release.
+
+## 2. Git
+- **Purpose**: Version control.
+- **Example**: Managing code for payment gateway integration.
+- **Diagram**: Developer 1 → Push Code → Repo → Developer 2 → Pull Code.
+
+## 3. Trello
+- **Purpose**: Task management with Kanban boards.
+- **Example**: Organizing tasks for a CMS.
+- **Flow**: Backlog → In Progress → Review → Done.
+
+## 4. Slack
+- **Purpose**: Team communication.
+- **Example**: Discussing progress on a booking system.
+- **Diagram**: Team Member A → Message → Slack → Team Member B → Reply.
+
+## 5. CI/CD Tools (Jenkins, CircleCI)
+- **Purpose**: Automates code integration and deployment.
+- **Example**: Auto-deploying a mobile app.
+- **Flow**: Code Commit → CI → Build → Test → Deploy.
+
+## 6. Automated Testing (Selenium, Jest)
+- **Purpose**: Automated testing.
+- **Example**: Running UI and unit tests for a web app.
+- **Flow**: Test Code → Run Tests → Review Results → Fix Issues.
+
+### Agile Process Flow
+1. **Planning**: Jira, Trello.
+2. **Development**: Git, Slack.
+3. **Testing**: Jenkins, Selenium.
+4. **Deployment**: Jenkins, CircleCI.
+5. **Review**: Jira, Slack.
+
