@@ -399,5 +399,103 @@ UML is a standardized language for visualizing, specifying, and documenting soft
 
 ---
  
+# Coding
+
+## 1. Programming Principles
+Programming principles are guidelines to help developers write clean, maintainable, and efficient code. Common principles include:
+
+### (a) **DRY (Don't Repeat Yourself)**
+- Avoid repeating the same code in multiple places by reusing functions or modules.
+  - **Example**: Instead of writing separate logic for user authentication in different files, create a reusable `authenticateUser()` function.
+
+### (b) **KISS (Keep It Simple, Stupid)**
+- Keep code simple and easy to understand. Avoid unnecessary complexity.
+  - **Example**: Use a straightforward `if-else` block instead of overly complex nested conditions for basic decision-making.
+
+### (c) **SOLID Principles**
+1. **S**ingle Responsibility Principle: A class should have one responsibility.
+   - *Example*: A `User` class should handle user-related data only, not order-related logic.
+2. **O**pen/Closed Principle: Code should be open for extension but closed for modification.
+   - *Example*: Add a new feature by extending a base class rather than modifying existing classes.
+3. **L**iskov Substitution Principle: Subclasses should be replaceable by their parent class without affecting functionality.
+   - *Example*: A `Square` class should work properly when used in place of a `Rectangle` class if `Square` is a subclass of `Rectangle`.
+4. **I**nterface Segregation Principle: Interfaces should have only the necessary methods.
+   - *Example*: Separate interfaces like `IPrintable` and `IScannable` rather than having an all-encompassing `IMachine` interface.
+5. **D**ependency Inversion Principle: Depend on abstractions, not concrete implementations.
+   - *Example*: Use interfaces like `PaymentGateway` instead of directly integrating with `Stripe` or `PayPal`.
+
+---
+
+## 2. Coding Conventions
+Coding conventions are standardized practices for writing code to make it more readable, maintainable, and consistent across teams.
+
+### **Examples of Coding Conventions**:
+- **Naming Conventions**: Use meaningful variable names.
+  - *Example*: `customerAge` instead of `a`.
+- **Code Indentation**: Use consistent indentation (e.g., 4 spaces or 1 tab).
+  - *Example*: Properly indented `if` blocks improve readability.
+- **Commenting**: Add comments to explain complex code.
+  - *Example*: `// This function calculates the total price after discount`
+- **File Naming**: Follow standard file naming conventions.
+  - *Example*: Use `UserController.java` for a file containing user-related operations in Java.
+
+### **Real-Time Example**:
+- In a team project, following naming conventions (`camelCase`, `PascalCase`) and proper indentation ensures all team members understand and work seamlessly on the same codebase.
+
+---
+
+# Object-Oriented Analysis and Design (OOAD)
+
+## What is OOAD?
+OOAD is a methodology that focuses on analyzing and designing a system using object-oriented principles like encapsulation, inheritance, and polymorphism.
+
+---
+
+## Phases of OOAD
+
+### 1. **Object-Oriented Analysis**
+Focuses on understanding the system requirements and identifying objects in the system.
+- **Real-Time Example**: In an online shopping system, objects could include `User`, `Product`, `Cart`, and `Order`.
+
+### 2. **Object-Oriented Design**
+Focuses on designing the system by defining the relationships, responsibilities, and interactions between objects.
+- **Real-Time Example**: In the online shopping system:
+  - **Relationships**: `Cart` has multiple `Product` objects.
+  - **Responsibilities**: The `Order` object calculates the total price.
+
+---
+
+## OOAD Principles with Real-Time Examples
+
+### (a) **Encapsulation**
+- Hides the internal details of an object and exposes only the necessary functionality.
+  - *Example*: A `BankAccount` class provides methods like `deposit()` and `withdraw()` but hides the internal balance calculation logic.
+
+### (b) **Inheritance**
+- Enables a class to inherit properties and behaviors from another class.
+  - *Example*: A `Car` class inherits common properties like `speed` and `fuel` from a `Vehicle` class.
+
+### (c) **Polymorphism**
+- Allows methods to behave differently based on the object that calls them.
+  - *Example*: A `print()` method behaves differently for `PDFPrinter` and `TextPrinter` classes.
+
+### (d) **Abstraction**
+- Focuses on showing only the essential details and hiding the implementation.
+  - *Example*: A `Payment` interface exposes methods like `processPayment()` without showing the underlying details of credit card or UPI processing.
+
+---
+
+## Real-Time Example of OOAD
+**System**: Ride-sharing app like Uber
+1. **Objects**:
+   - `Driver`, `Rider`, `Ride`, `Vehicle`
+2. **Relationships**:
+   - A `Rider` can book multiple `Rides`.
+   - A `Driver` is associated with a `Vehicle`.
+3. **Responsibilities**:
+   - The `Ride` class calculates the fare.
+   - The `Driver` class updates the ride status.
+
+---
 
 
