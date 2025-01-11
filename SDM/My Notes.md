@@ -732,3 +732,92 @@ In a software project for healthcare management, regular meetings between develo
 4. **Deployment**: Jenkins, CircleCI.
 5. **Review**: Jira, Slack.
 
+```
+```
+# Scrum and Extreme Programming (XP)
+
+## Scrum and Extreme Programming (XP)
+
+**Scrum** and **Extreme Programming (XP)** are agile frameworks that emphasize collaboration, flexibility, and efficiency in software development. 
+
+### Real-Time Example:
+- **Scrum**: In a team developing an e-commerce website, the product backlog contains features like user registration, payment gateway integration, and product management. The team organizes tasks into sprints (usually 2-4 weeks). At the end of each sprint, the team delivers potentially shippable software increments.
+  
+- **Extreme Programming (XP)**: In XP, frequent releases, pair programming, and test-driven development (TDD) are prioritized. For the e-commerce site, developers would pair up to write tests first (TDD) and ensure frequent releases with customer feedback.
+
+---
+
+## Introduction to Atlassian Jira
+
+**Atlassian Jira** is a tool used for project management, specifically in agile frameworks like Scrum and XP. It helps teams to organize tasks, create sprints, and track progress.
+
+### 1. Add Project
+To add a project in Jira:
+- **Steps**:
+  - Navigate to the "Projects" menu.
+  - Click "Create Project."
+  - Choose a project template (e.g., Scrum or Kanban).
+  - Enter project details and create.
+
+### 2. Add Tasks and Sub-tasks
+- **Steps**:
+  - In the project dashboard, click on "Create Issue."
+  - Select the issue type (e.g., Story, Task).
+  - Add title, description, priority, and assignee.
+  - For sub-tasks, click "Create Sub-task" within a task to break it down into smaller work items.
+
+### 3. Create Sprints with Tasks
+- **Steps**:
+  - Go to the "Backlog" section.
+  - Drag and drop issues from the backlog to the sprint section.
+  - Set the sprint duration and start the sprint.
+
+---
+
+## Case Study of Developing a Web Application Using Agile Methodology
+
+### Real-Time Example:
+A team develops a **task management web application** using the Scrum framework. The product owner defines a backlog that includes user authentication, task creation, and reporting features. The team works in two-week sprints, delivering working software at the end of each sprint.
+
+---
+
+## Flowchart and Diagram
+
+### 1. Scrum Workflow:
+   - Product Backlog -> Sprint Planning -> Sprint Backlog -> Daily Standups -> Sprint Execution -> Sprint Review -> Sprint Retrospective.
+
+**Flowchart:**
+```plaintext
++-----------------+
+| Product Backlog |
++-----------------+
+        |
+        v
++---------------------+
+| Sprint Planning      |
++---------------------+
+        |
+        v
++---------------------+
+| Sprint Backlog       |
++---------------------+
+        |
+        v
++---------------------+
+| Daily Standups       |
++---------------------+
+        |
+        v
++---------------------+
+| Sprint Execution     |
++---------------------+
+        |
+        v
++---------------------+
+| Sprint Review        |
++---------------------+
+        |
+        v
++---------------------+
+| Sprint Retrospective |
++---------------------+
