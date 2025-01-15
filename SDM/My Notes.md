@@ -110,6 +110,9 @@ Software engineering is critical because it ensures the creation of reliable, ef
 
 ## Software Development Life Cycle (SDLC)
 
+![image](https://github.com/user-attachments/assets/badbbebd-be6a-4060-8b7f-38fdb028c322)
+
+
 ### **What is SDLC?**
 SDLC is a step-by-step process for designing, developing, and maintaining software. It ensures that the software meets the client’s requirements and is delivered on time.
 
