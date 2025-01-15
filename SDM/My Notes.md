@@ -36,18 +36,26 @@ A **software process model** provides a framework to structure and manage softwa
 ### (a) **Waterfall Model**
 - Linear and sequential process where each phase depends on the previous one.  
   *Example*: Building a library management system with clearly defined phases like requirement gathering, coding, and testing.
+  ![image](https://github.com/user-attachments/assets/a172291f-23f0-45b3-a6c9-a88278f850ec)
+
 
 ### (b) **Agile Model**
 - Focuses on iterative development, frequent updates, and user feedback.  
   *Example*: A team uses **Scrum** to develop a food delivery app, delivering features like live tracking in multiple sprints.
+  ![image](https://github.com/user-attachments/assets/a6f0f2b6-5630-4c84-a603-6797b81e92aa)
+
 
 ### (c) **Spiral Model**
 - Combines iterative and risk analysis approaches, emphasizing prototypes.  
   *Example*: Developing a new operating system where risks are identified, and prototypes are built before final development.
+  ![image](https://github.com/user-attachments/assets/3a5bb8a2-2e30-4920-b2d5-3f6dfcd4478a)
+
 
 ### (d) **DevOps Model**
 - Integrates development and operations, focusing on continuous delivery and automation.  
   *Example*: Amazon uses DevOps for frequent updates and automated deployment of its services.
+  ![image](https://github.com/user-attachments/assets/f2b470f9-159e-4474-b9ae-f8aa381c60b4)
+
 
 ---
 
