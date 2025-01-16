@@ -3199,7 +3199,7 @@ The architecture of an ASP.NET MVC application consists of three main components
 User Request → Controller → Model → Database → Model → Controller → View → User Response
 ```
 
----
+
 
 ## **Understanding Folder Structures and Configuration Files**
 
@@ -3585,7 +3585,7 @@ HttpContext.Application["AppName"] = "MyApp";
 // Get application state
 string appName = HttpContext.Application["AppName"]?.ToString();
 
-     
+```   
 ---
 
 ## **MVC Module**
