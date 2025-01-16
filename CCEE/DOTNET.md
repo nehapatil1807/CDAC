@@ -3676,7 +3676,7 @@ Child actions are invoked within a parent view using `Html.Action`.
 
 ---
 
-# Data Management with ADO.NET
+# Data Management with ADO.NET ( ActiveX Data Objects )
 
 ## **Introduction to Microsoft.Data.SqlClient**
 `Microsoft.Data.SqlClient` is the official library for connecting .NET applications to SQL Server databases. It replaces the earlier `System.Data.SqlClient` and provides robust support for synchronous and asynchronous database operations.
