@@ -147,3 +147,154 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
 ✅ **Use `GET` for reading data & `POST` for sensitive or large data submissions!** 🚀
 
+## Java Web Development Questions with Answers
+
+### 5. When to use GET and when to use POST?
+
+| Criteria | GET | POST |
+|----------|-----|------|
+| Use Case | When retrieving data (Read operation) | When submitting or modifying data (Create, Update, Delete) |
+| Data Visibility | Sent in the URL (visible) | Sent in the request body (hidden) |
+| Security | Less secure (data exposed in URL) | More secure (data not logged in URL) |
+| Bookmarking & Caching | Can be bookmarked & cached | Cannot be bookmarked & usually not cached |
+| Data Limit | Limited (URL length restriction) | No size limitation (suitable for large data) |
+| Idempotency | Should be idempotent (same request, same response) | Not necessarily idempotent (multiple submissions create different results) |
+
+**Examples:**
+- **GET Example (Fetching product details)**: `https://example.com/products?category=shoes&brand=nike`
+- **POST Example (User login)**: `POST https://bankingapp.com/api/login`
+
+---
+
+### 7. Why is there a need for a URL to a Servlet?
+
+A URL is required to access a servlet because:
+- **Client-Server Communication**: Clients send requests via URLs to map to specific servlets.
+- **Routing Requests**: URLs determine which servlet handles a request.
+- **Separation of Concerns**: URLs define functionalities (`/login`, `/register`).
+- **Scalability**: Allows servlets to handle multiple request types dynamically.
+- **RESTful Design**: Enables integration with frontend applications.
+
+**Example:**
+```java
+@WebServlet("/orders/status")
+public class OrderStatusServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String orderId = req.getParameter("orderId");
+        resp.getWriter().println("Order Status for ID: " + orderId + " is Shipped");
+    }
+}
+```
+**URL Access**: `https://example.com/orders/status?orderId=12345`
+
+---
+
+### 8. How to give a URL to a Servlet?
+
+There are two methods:
+
+1. **Using `@WebServlet` Annotation** (Preferred)
+```java
+@WebServlet("/hello")
+public class HelloServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        resp.getWriter().println("Hello, Servlet!");
+    }
+}
+```
+**URL Access**: `http://localhost:8080/yourapp/hello`
+
+2. **Using `web.xml`** (Older Approach)
+```xml
+<servlet>
+    <servlet-name>HelloServlet</servlet-name>
+    <servlet-class>HelloServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>HelloServlet</servlet-name>
+    <url-pattern>/hello</url-pattern>
+</servlet-mapping>
+```
+
+---
+
+### 9. Purpose of `web.xml`?
+
+`web.xml` (Deployment Descriptor) is used for configuring web components.
+
+**Key Uses:**
+- **Servlet Configuration & URL Mapping**
+- **Session Management** (`<session-config>`, `<session-timeout>30</session-timeout>`)
+- **Welcome Page Configuration** (`<welcome-file>index.html</welcome-file>`)
+- **Error Page Handling** (`<error-page> <error-code>404</error-code> <location>/error404.html</location> </error-page>`)
+- **Security Configuration** (`<security-constraint>`)
+- **Filter Configuration** (`<filter-mapping>`)
+
+---
+
+### 10. What is a Container?
+
+A **Container** in Java provides an environment for executing servlets, JSPs, and enterprise applications.
+
+**Types of Containers:**
+- **Servlet Container (Web Container)**: Manages servlets and HTTP requests. _(Examples: Tomcat, Jetty)_
+- **EJB Container**: Manages business logic components. _(Examples: WildFly, JBoss)_
+- **Application Server (Full Java EE Container)**: Provides enterprise-level services. _(Examples: WebLogic, JBoss)_
+- **Spring Container**: Manages Spring Beans and dependency injection.
+
+**Example:**
+```java
+@WebServlet("/hello")
+public class HelloServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        resp.getWriter().println("Hello from Servlet Container!");
+    }
+}
+```
+**Access URL**: `http://localhost:8080/yourapp/hello`
+
+---
+
+### 11. What is JSP?
+
+**JSP (JavaServer Pages)** is a server-side technology that allows embedding Java in HTML.
+
+**Features:**
+- Mixes Java & HTML (`<%= new java.util.Date() %>`)
+- Faster Development than Servlets
+- Built-in Objects (`request`, `response`, `session`)
+- Supports Custom Tags and Expression Language
+
+**Example:**
+```jsp
+<h2>Welcome to JSP!</h2>
+<p>Current Time: <%= new java.util.Date() %></p>
+```
+
+---
+
+### 12. Why use JSP?
+
+**Advantages of JSP:**
+- Simplifies HTML + Java Integration
+- Reduces Code Complexity (Compared to Servlets)
+- Supports Reusability with JSP Tags & Expression Language
+- Built-in Objects (`session`, `request`)
+- Supports MVC Architecture
+
+**Example:**
+Servlet:
+```java
+request.setAttribute("message", "Hello from Servlet!");
+request.getRequestDispatcher("hello.jsp").forward(request, response);
+```
+JSP:
+```jsp
+<h2>Message: ${requestScope.message}</h2>
+```
+
+---
+ 
+
+
+
