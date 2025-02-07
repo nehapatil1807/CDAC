@@ -294,7 +294,136 @@ JSP:
 ```
 
 ---
- 
+
+ ## 13. Difference Between Statement and PreparedStatement in JDBC
+
+### Feature Comparison
+| Feature             | Statement                                      | PreparedStatement                          |
+|---------------------|--------------------------------|--------------------------------|
+| Definition         | Executes simple SQL queries.  | Precompiles SQL queries for better performance. |
+| Query Compilation  | Compiled every time it runs.  | Compiled only once, then reused. |
+| Performance       | Slower for repeated execution. | Faster for repeated execution. |
+| Security         | Vulnerable to SQL Injection. | Prevents SQL Injection. |
+| Parameter Handling | Uses string concatenation. | Uses placeholders (?) for dynamic values. |
+| Best Used For | Single-use queries (e.g., table creation). | Repeated queries (e.g., inserting multiple records). |
+
+### Real-Time Example
+
+#### Using Statement (Vulnerable to SQL Injection 🚨)
+```java
+Statement stmt = conn.createStatement();
+String user = "admin";  
+String query = "SELECT * FROM users WHERE username = '" + user + "'";  
+ResultSet rs = stmt.executeQuery(query);
+```
+🔴 If a hacker inputs `admin' OR '1'='1`, the query becomes:
+```sql
+SELECT * FROM users WHERE username = 'admin' OR '1'='1'
+```
+✅ Result: All users' data is exposed (SQL Injection 🚨).
+
+#### Using PreparedStatement (Secure ✅)
+```java
+PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM users WHERE username = ?");
+pstmt.setString(1, "admin");  
+ResultSet rs = pstmt.executeQuery();
+```
+✅ Benefits:
+- Prevents SQL Injection.
+- Reuses the query for multiple executions, improving performance.
+
+### When to Use?
+- Use `Statement` for one-time queries (e.g., `CREATE TABLE`).
+- Use `PreparedStatement` for repeated queries (e.g., `INSERT`, `UPDATE`, `SELECT` with parameters). 🚀
+
+---
+
+## 14. Ways to Track Sessions in Java Web Applications
+
+### Session Tracking Methods
+| Method               | Description                                      | When to Use?              |
+|----------------------|-------------------------------------------------|---------------------------|
+| **Cookies** 🍪      | Stores session data in the browser.             | Simple session tracking.  |
+| **URL Rewriting** 🔗 | Appends session ID to the URL.                   | When cookies are disabled. |
+| **Hidden Form Fields** 📩 | Stores session data in form inputs. | For form-based navigation. |
+| **HttpSession API** 🛠️  | Uses HttpSession to store data on the server. | Best for secure session management. |
+
+### 1️⃣ Using Cookies (Stored on Client)
+#### Example: Setting a Cookie in Java Servlet
+```java
+Cookie cookie = new Cookie("username", "JohnDoe");
+cookie.setMaxAge(60 * 60);  // 1 hour
+response.addCookie(cookie);
+```
+#### Reading Cookie in JSP
+```jsp
+<%
+   Cookie[] cookies = request.getCookies();
+   for (Cookie c : cookies) {
+      if ("username".equals(c.getName())) {
+          out.println("User: " + c.getValue());
+      }
+   }
+%>
+```
+✅ Pros: Works across requests automatically.
+❌ Cons: Can be disabled by the user.
+
+### 2️⃣ Using URL Rewriting (Appending Session ID in URL)
+#### Example:
+```jsp
+<a href="profile.jsp?sessionId=<%= session.getId() %>">Go to Profile</a>
+```
+✅ Pros: Works when cookies are blocked.
+❌ Cons: Exposes session ID in URL (security risk).
+
+### 3️⃣ Using Hidden Form Fields (Stored in Form Inputs)
+#### Example in HTML Form:
+```html
+<form action="dashboard.jsp" method="post">
+    <input type="hidden" name="userId" value="12345">
+    <input type="submit" value="Submit">
+</form>
+```
+✅ Pros: Works well for form-based interactions.
+❌ Cons: Limited to form submissions.
+
+### 4️⃣ Using HttpSession (Best Approach)
+#### Storing Session Data
+```java
+HttpSession session = request.getSession();
+session.setAttribute("username", "JohnDoe");
+```
+#### Retrieving Session Data
+```jsp
+<p>Welcome, <%= session.getAttribute("username") %>!</p>
+```
+✅ Pros: Secure, automatic session management.
+❌ Cons: Uses server memory (not ideal for large-scale apps).
+
+### 🔹 Real-Time Example: E-Commerce Website
+- **User logs in:** HttpSession stores user ID.
+- **User adds items to cart:** Session data is tracked.
+- **User checks out:** Data remains available.
+
+### Conclusion
+- **Use HttpSession** for most cases.
+- **Use Cookies** for simple tracking.
+- **Use URL Rewriting** if cookies are disabled.
+- **Use Hidden Form Fields** for form-based tracking. 🚀
+
+---
+
+## 15. Name Session Tracking Methods
+
+The four session tracking methods in Java are:
+1️⃣ **Cookies** 🍪
+2️⃣ **URL Rewriting** 🔗
+3️⃣ **Hidden Form Fields** 📩
+4️⃣ **HttpSession API** 🛠️
+
+These methods help maintain user session data across multiple requests in web applications. 🚀
+
 
 
 
