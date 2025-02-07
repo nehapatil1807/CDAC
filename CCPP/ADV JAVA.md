@@ -425,5 +425,191 @@ The four session tracking methods in Java are:
 These methods help maintain user session data across multiple requests in web applications. 🚀
 
 
+## JSP Interview Questions & Answers
+
+### 16. How to Create a Hidden Form Field in JSP/HTML?
+A hidden form field is an `<input>` element with `type="hidden"` that stores data without being visible to the user. It helps in session tracking and passing values between pages.
+
+**Example: Using Hidden Form Field in JSP**
+
+#### Step 1: Create a Form with a Hidden Input (`index.jsp`)
+```html
+<form action="dashboard.jsp" method="post">
+    <input type="hidden" name="userId" value="12345">
+    <input type="submit" value="Submit">
+</form>
+```
+🔹 Hidden Field: `userId=12345` is stored but not visible to the user.
+
+#### Step 2: Retrieve Hidden Field Data in Servlet/JSP (`dashboard.jsp`)
+```jsp
+<%
+    String userId = request.getParameter("userId");
+    out.println("User ID: " + userId);
+%>
+```
+🔹 **Output**: `User ID: 12345`
+
+### 17. Difference Between Cookies and HttpSession in Java
+
+| Feature      | Cookies 🍪         | HttpSession 🛠️       |
+|-------------|-------------------|----------------------|
+| Storage     | Client-side (browser) | Server-side         |
+| Data Lifetime | Can persist after browser closes | Exists until session ends |
+| Security    | Less secure (modifiable by users) | More secure (server-side) |
+| Size Limit  | 4KB per cookie      | No fixed limit      |
+| Performance | Faster (client-side) | Slightly slower (server-side) |
+| Best Used For | Remembering user preferences | Storing user-specific session data |
+
+**Example of Cookies**
+```java
+Cookie cookie = new Cookie("username", "JohnDoe");
+cookie.setMaxAge(60 * 60); // 1 hour
+response.addCookie(cookie);
+```
+
+**Example of HttpSession**
+```java
+HttpSession session = request.getSession();
+session.setAttribute("username", "JohnDoe");
+```
+
+🔹 **When to Use?**
+- **Cookies**: Store small, non-sensitive data across multiple visits.
+- **HttpSession**: Store secure, user-specific session data (e.g., login sessions, cart details).
+
+### 18. How to Give the Session Object in a Servlet?
+
+#### 1️⃣ Creating a Session in a Servlet
+```java
+HttpSession session = request.getSession(); // Creates or retrieves session
+session.setAttribute("username", "JohnDoe"); // Store data in session
+```
+
+#### 2️⃣ Retrieving Session Data in Another Servlet
+```java
+HttpSession session = request.getSession(false); // Get session without creating a new one
+if (session != null) {
+    String username = (String) session.getAttribute("username");
+    response.getWriter().println("User: " + username);
+} else {
+    response.getWriter().println("No active session found!");
+}
+```
+
+#### 3️⃣ Invalidating a Session (Logout Example)
+```java
+HttpSession session = request.getSession();
+session.invalidate(); // Ends the session
+```
+
+🚀 **Use Case: E-Commerce Login System**
+1. User logs in → `session.setAttribute("username", "JohnDoe");`
+2. User visits profile → `session.getAttribute("username");`
+3. User logs out → `session.invalidate();`
+
+### 19. How Many Objects Are Servlet Scope?
+
+| Scope        | Object        | Lifetime                 | Use Case                     |
+|-------------|--------------|--------------------------|------------------------------|
+| Request     | `request`     | Single request           | Form data transfer          |
+| Session     | `session`     | Until logout/session timeout | User authentication       |
+| Application | `application` | Until the server stops   | Global settings             |
+| Page        | `page`        | Single JSP page execution | Data for a single JSP page |
+
+### 20. What is a Scriptlet?
+A **scriptlet** in JSP is a block of Java code embedded inside a JSP page using `<% %>`. It allows you to write Java code directly inside JSP.
+
+#### **Syntax of Scriptlet**
+```jsp
+<%
+    int a = 10;
+    int b = 20;
+    int sum = a + b;
+    out.println("Sum: " + sum);
+%>
+```
+✅ **Output**: `Sum: 30`
+
+⚠️ **Drawback**: Mixing Java with HTML makes JSP hard to maintain. Use JSTL instead!
+
+### 21. Use of Scriptlet in JSP
+
+✅ **1️⃣ Embedding Java Code in JSP**
+```jsp
+<% int num = 10; out.println("Number: " + num); %>
+```
+
+✅ **2️⃣ Performing Business Logic**
+```jsp
+<%
+    int a = 5, b = 10;
+    int sum = a + b;
+    out.println("Sum: " + sum);
+%>
+```
+
+✅ **3️⃣ Accessing Request, Session, and Application Data**
+```jsp
+<%
+    String user = (String) session.getAttribute("username");
+    out.println("Welcome, " + user);
+%>
+```
+
+🚀 **Conclusion**: Scriptlets were widely used earlier but are now discouraged in favor of **JSTL & EL** for better maintainability.
+
+### 22. Scriptlet Syntax
+
+✅ **Basic Syntax**
+```jsp
+<%
+    int a = 10;
+    int b = 20;
+    int sum = a + b;
+    out.println("Sum: " + sum);
+%>
+```
+
+✅ **Using Loops in Scriptlets**
+```jsp
+<%
+    for (int i = 1; i <= 3; i++) {
+        out.println("Count: " + i + "<br>");
+    }
+%>
+```
+
+🚀 **Better Alternative**: Use **JSTL**
+```jsp
+<c:forEach var="i" begin="1" end="3">
+    Count: ${i} <br>
+</c:forEach>
+```
+
+### 23. Request Data in Scriptlet - How to Get It?
+
+✅ **Getting Request Parameters (Form Data)**
+```jsp
+<%
+    String name = request.getParameter("username");
+    out.println("Welcome, " + name);
+%>
+```
+
+✅ **Getting Request Attributes (Data Set by Servlet/JSP)**
+```jsp
+<%
+    String msg = (String) request.getAttribute("message");
+    out.println(msg);
+%>
+```
+
+🚀 **Conclusion**:
+✔ Form Data: `request.getParameter("paramName")`
+✔ Attributes (From Servlet): `request.getAttribute("attrName")`
+✔ Headers: `request.getHeader("headerName")`
+✔ Use JSTL & EL instead of scriptlets for cleaner JSP code.
+
 
 
