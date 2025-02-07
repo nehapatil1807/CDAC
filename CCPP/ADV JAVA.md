@@ -611,5 +611,86 @@ A **scriptlet** in JSP is a block of Java code embedded inside a JSP page using 
 ✔ Headers: `request.getHeader("headerName")`
 ✔ Use JSTL & EL instead of scriptlets for cleaner JSP code.
 
+### **Question 24:** Why do we store data in a request?
+
+### **Answer:**
+We store data in a request (using `request.setAttribute()`) to pass data between a servlet and a JSP within the same request lifecycle. This avoids unnecessary session usage and ensures data is available only for that request.
+
+### **Real-time Example:**
+
+#### **Scenario:** Suppose a user submits a login form, and we want to display their name on a welcome page **without using a session**.
+
+##### **Servlet Code (`LoginServlet.java`)**
+```java
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String username = request.getParameter("username");
+
+        // Store data in request scope
+        request.setAttribute("user", username);
+
+        // Forwarding to JSP
+        RequestDispatcher dispatcher = request.getRequestDispatcher("welcome.jsp");
+        dispatcher.forward(request, response);
+    }
+}
+```
+
+##### **JSP Code (`welcome.jsp`)**
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<html>
+<body>
+    <h2>Welcome, <%= request.getAttribute("user") %>!</h2>
+</body>
+</html>
+```
+
+### **Why use request scope?**
+- The data is available **only for that request** (not stored in session).
+- Reduces memory usage **compared to session scope**.
+- Useful for **form submission, error messages, and temporary data processing**.
+- This is widely used in **MVC architecture** for request handling between servlets and JSPs. 🚀
+
+---
+
+### **Question 25:** What is the difference between `sendRedirect()` and `RequestDispatcher`?
+
+### **Answer:**
+
+| Feature             | `sendRedirect()` | `RequestDispatcher.forward()` |
+|---------------------|----------------|-----------------------------|
+| **Client/Server Interaction** | Client-side redirect (browser makes a new request) | Server-side forward (request stays within server) |
+| **URL Change**     | Yes (URL changes in browser) | No (URL remains same) |
+| **Performance**    | Slower (extra request-response cycle) | Faster (single request cycle) |
+| **Scope of Data**  | Attributes in `request` are lost | Attributes in `request` are retained |
+| **Usage**         | Redirecting to external websites or different applications | Forwarding to another resource within the same application |
+
+### **Real-time Example:**  
+
+#### **1️⃣ `sendRedirect()` (Client-side)**
+**Scenario:** After a user logs out, redirect them to an external login page.  
+
+```java
+response.sendRedirect("https://www.google.com");  // Redirects to Google
+```
+🔹 A new request is made, and the previous request data is lost.  
+
+---
+
+#### **2️⃣ `RequestDispatcher.forward()` (Server-side)**
+**Scenario:** Forward a request from a login servlet to a dashboard page **without changing the URL**.
+
+```java
+RequestDispatcher rd = request.getRequestDispatcher("dashboard.jsp");
+rd.forward(request, response);
+```
+🔹 The same request is forwarded, so attributes set in the servlet remain available in the JSP.  
+
+### **Key Takeaway:**  
+Use **`sendRedirect()`** for external redirections and **`RequestDispatcher.forward()`** for internal forwarding within the same app. 🚀
+
 
 
