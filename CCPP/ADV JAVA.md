@@ -834,5 +834,29 @@ JSP provides **9 implicit objects** that are automatically available.
 
 📌 **Use Case**: `session.setAttribute("username", "JohnDoe");` maintains user login data across multiple pages.
 
+## 31. When to use sendRedirect and RequestDispatcher?
+
+### Answer:
+- **`sendRedirect`** is used when you want to redirect the client to a different domain or a completely different resource. It makes the client send a new request, so the original request attributes are lost.
+- **`RequestDispatcher`** is used when you want to forward or include a request within the same server. It does not create a new request and retains the request attributes.
+
+### Real-Time Example:
+#### `sendRedirect` Example:
+Suppose a user logs in to an e-commerce website (`example.com/login`), and after successful login, they should be redirected to the homepage (`example.com/home`).
+
+```java
+response.sendRedirect("home.jsp");
+```  
+Here, a new request is sent, and the browser's URL changes.
+
+#### `RequestDispatcher` Example:
+If you want to verify login credentials before forwarding the request to a dashboard page (`dashboard.jsp`) without changing the URL:
+
+```java
+RequestDispatcher rd = request.getRequestDispatcher("dashboard.jsp");
+rd.forward(request, response);
+```  
+Here, the request is forwarded internally, and the URL remains the same.
+
 
 
