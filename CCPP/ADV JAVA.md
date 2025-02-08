@@ -1380,3 +1380,70 @@ public class ManualServlet implements Servlet {
 - **Use `GenericServlet`** for non-HTTP-specific implementations.
 - **Use `Servlet` Interface** only for custom implementations with full lifecycle control.
 
+## 42. What is Servlet Life Cycle?
+
+### **Answer**
+The **Servlet Life Cycle** consists of **five stages** managed by the **Servlet Container**:
+
+---
+
+## **1. Loading and Instantiation**
+- The **servlet class** is loaded when the web container starts or upon the first request.
+- The servlet instance is created using the **no-argument constructor**.
+
+## **2. Initialization (`init()`)**
+- The **`init(ServletConfig config)`** method is called once to initialize the servlet.
+- This is used to set up resources like database connections.
+
+### **Example:**
+```java
+@Override
+public void init(ServletConfig config) throws ServletException {
+    super.init(config);
+    System.out.println("Servlet Initialized");
+}
+```
+
+---
+
+## **3. Request Handling (`service()`)**
+- The **`service(ServletRequest, ServletResponse)`** method is invoked for each request.
+- It determines whether to call **`doGet()`** or **`doPost()`** based on the request type.
+
+### **Example:**
+```java
+@Override
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    response.getWriter().println("Hello from doGet()");
+}
+```
+
+---
+
+## **4. Destroy (`destroy()`)**
+- The **`destroy()`** method is called when the servlet is removed from service.
+- Used to release resources like database connections.
+
+### **Example:**
+```java
+@Override
+public void destroy() {
+    System.out.println("Servlet Destroyed");
+}
+```
+
+---
+
+## **5. Garbage Collection**
+- After `destroy()`, the servlet is eligible for garbage collection.
+- The servlet object is removed from memory by the JVM.
+
+---
+
+## **Servlet Life Cycle Flow:**
+1. **Servlet Loaded** → `init()` called **(once)**
+2. **Request Received** → `service()` → Calls `doGet()` / `doPost()`
+3. **Servlet Unloaded** → `destroy()` called **(once before termination)**
+
+This process ensures the servlet efficiently handles multiple requests while managing resources effectively.
+
