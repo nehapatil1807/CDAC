@@ -900,4 +900,66 @@ public class CheckoutServlet extends HttpServlet {
 - **`include(request, response)`** ensures the `header.jsp` is displayed before proceeding.
 - **`forward(request, response)`** redirects the request to `payment.jsp`, stopping further execution in the servlet.
 
+## 33. What is Servlet Context Scope, Request Scope, Session Scope, and Application Scope?
+
+### **Answer**  
+In Java Servlets, different scopes determine how long attributes remain available in different parts of the application.  
+
+### **1. Servlet Context Scope (Application Scope)**  
+- The **ServletContext** is shared across the entire application.  
+- Data stored here is accessible to all users and servlets.  
+- Best for application-wide settings like database connections.  
+
+#### **Example:**  
+Setting a global attribute in `ServletContext`:  
+```java
+ServletContext context = getServletContext();
+context.setAttribute("appName", "Online Shopping");
+```
+Accessing it in another servlet:  
+```java
+String appName = (String) context.getAttribute("appName");
+```
+
+---
+
+### **2. Request Scope**  
+- The **request scope** is limited to a single HTTP request.  
+- Useful for passing data between servlets or JSPs within one request.  
+
+#### **Example:**  
+Setting an attribute in `request`:  
+```java
+request.setAttribute("message", "Order Placed Successfully!");
+RequestDispatcher rd = request.getRequestDispatcher("confirmation.jsp");
+rd.forward(request, response);
+```
+Retrieving it in `confirmation.jsp`:  
+```jsp
+<%= request.getAttribute("message") %>
+```
+
+---
+
+### **3. Session Scope**  
+- The **session scope** lasts as long as the user’s session is active.  
+- Best for storing user-specific data like login credentials.  
+
+#### **Example:**  
+Setting session attributes:  
+```java
+HttpSession session = request.getSession();
+session.setAttribute("username", "JohnDoe");
+```
+Retrieving it in another servlet or JSP:  
+```java
+String username = (String) session.getAttribute("username");
+```
+
+---
+
+### **4. Application Scope**  
+- Another term for **ServletContext scope** (used interchangeably).  
+- Stores global data accessible across all sessions and requests.
+
 
