@@ -692,5 +692,147 @@ rd.forward(request, response);
 ### **Key Takeaway:**  
 Use **`sendRedirect()`** for external redirections and **`RequestDispatcher.forward()`** for internal forwarding within the same app. 🚀
 
+# Advanced Java Interview Questions and Answers
+
+## 26. Difference Between `forward()` and `include()` in Servlet `RequestDispatcher`
+
+| Feature | `forward(request, response)` | `include(request, response)` |
+|---------|-----------------------------|-----------------------------|
+| Execution | Transfers control to another resource (JSP/Servlet) | Includes another resource within the response |
+| Client URL | URL in the browser remains the same | URL in the browser remains the same |
+| Response Handling | The original response is discarded; only the forwarded resource’s response is sent | The included resource’s output is added to the original response |
+| Use Case | When you want to completely transfer processing | When you want to display output from multiple resources in a single response |
+
+### **Real-Time Example**
+#### `forward()` Example (Page Redirection in Login)
+```java
+RequestDispatcher rd = request.getRequestDispatcher("dashboard.jsp");
+rd.forward(request, response);
+```
+📌 **Scenario**: A user logs in, and after successful validation, they are forwarded to the dashboard without seeing `login.jsp` in the URL.
+
+#### `include()` Example (Header/Footer in a Website)
+```java
+RequestDispatcher rd = request.getRequestDispatcher("header.jsp");
+rd.include(request, response);
+```
+📌 **Scenario**: Every webpage (home.jsp, about.jsp) includes `header.jsp` and `footer.jsp` dynamically.
+
+---
+## 27. What is `ServletContext`?
+`ServletContext` is an interface in Java Servlets that provides a way to access global application-level parameters and resources. It is shared across all servlets in the web application.
+
+### **Real-Time Example**
+#### 1️⃣ Storing Global Configuration (Database Connection Parameters)
+**web.xml Configuration:**
+```xml
+<context-param>
+    <param-name>dbURL</param-name>
+    <param-value>jdbc:mysql://localhost:3306/mydb</param-value>
+</context-param>
+```
+**Servlet Code (Fetching the Parameter):**
+```java
+ServletContext context = getServletContext();
+String dbURL = context.getInitParameter("dbURL");
+System.out.println("Database URL: " + dbURL);
+```
+📌 **Use Case**: Allows all servlets in the application to access the database configuration without duplication.
+
+#### 2️⃣ Sharing Data Between Servlets
+```java
+ServletContext context = getServletContext();
+Integer count = (Integer) context.getAttribute("visitorCount");
+if (count == null) {
+    count = 1;
+} else {
+    count++;
+}
+context.setAttribute("visitorCount", count);
+System.out.println("Visitor Count: " + count);
+```
+📌 **Use Case**: Every new visitor increases the count, and all servlets share the same visitor data.
+
+---
+## 28. What is `Servlet Scope Object`?
+Servlet scope objects define how long data is stored and shared across different parts of a web application.
+
+| Scope Object | Visibility | Lifetime | Example Use Case |
+|-------------|-----------|----------|------------------|
+| **Request Scope (`request`)** | Single request | Until response is sent | Form submission handling |
+| **Session Scope (`session`)** | Single user session | Until session expires/logs out | User login session |
+| **Application Scope (`servletContext`)** | Entire application | Until server restarts | Global settings like visitor count |
+
+### **Real-Time Examples**
+#### 1️⃣ **Request Scope (`request`)**
+```java
+request.setAttribute("message", "Welcome, User!");
+RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
+rd.forward(request, response);
+```
+📌 **Use Case**: A user submits a login form, and the message "Welcome, User!" is passed only to `welcome.jsp`.
+
+#### 2️⃣ **Session Scope (`session`)**
+```java
+HttpSession session = request.getSession();
+session.setAttribute("username", "JohnDoe");
+```
+📌 **Use Case**: A user logs in, and the username "JohnDoe" is stored in the session, accessible across multiple pages.
+
+#### 3️⃣ **Application Scope (`servletContext`)**
+```java
+ServletContext context = getServletContext();
+context.setAttribute("visitorCount", 100);
+```
+📌 **Use Case**: A visitor counter stores the number of website visits, accessible to all servlets.
+
+---
+## 29. How to Get `ServletConfig` Object?
+`ServletConfig` is an object used to retrieve configuration parameters specific to a single servlet. It is created by the servlet container for each servlet instance.
+
+### **Ways to Get `ServletConfig` Object**
+#### 1️⃣ Using `getServletConfig()`
+```java
+public class MyServlet extends HttpServlet {
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        ServletConfig config = getServletConfig();
+        String dbUser = config.getInitParameter("dbUser");
+        response.getWriter().println("Database User: " + dbUser);
+    }
+}
+```
+📌 **Use Case**: Retrieving a database username configured for a specific servlet.
+
+#### 2️⃣ Using `init(ServletConfig config)`
+```java
+public class MyServlet extends HttpServlet {
+    private ServletConfig config;
+
+    public void init(ServletConfig config) throws ServletException {
+        this.config = config;
+    }
+}
+```
+📌 **Use Case**: Storing servlet-specific settings instead of sharing them across the entire application.
+
+---
+## 30. Implicit Objects in JSP
+JSP provides **9 implicit objects** that are automatically available.
+
+| Implicit Object | Type | Purpose | Example Use Case |
+|----------------|------|---------|------------------|
+| **request** | `HttpServletRequest` | Handles client request data | Getting form input |
+| **response** | `HttpServletResponse` | Sends response back to the client | Redirecting users |
+| **session** | `HttpSession` | Stores user-specific data | Maintaining login sessions |
+| **application** | `ServletContext` | Stores global data across the app | Visitor counter |
+| **out** | `JspWriter` | Writes data to the response | Displaying HTML dynamically |
+| **config** | `ServletConfig` | Retrieves servlet-specific parameters | Getting servlet init parameters |
+| **pageContext** | `PageContext` | Provides access to all scopes | Setting page-level attributes |
+| **page** | `Object` | Refers to the current JSP instance | Used for advanced JSP operations |
+| **exception** | `Throwable` | Handles exceptions in error pages | Custom error handling |
+
+📌 **Use Case**: `session.setAttribute("username", "JohnDoe");` maintains user login data across multiple pages.
+
 
 
