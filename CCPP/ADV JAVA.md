@@ -1025,3 +1025,48 @@ public class ClientServlet extends HttpServlet {
 This example demonstrates how 100 clients making 100 requests result in **100 request objects, 100 session objects, and 1 servlet context object**.
 
 
+## 35. Can You Define the Time to Session Object?
+
+### **Answer**  
+Yes, you can define the session timeout for a session object in Java Servlets. The session timeout determines how long a session remains active before it is invalidated due to inactivity.
+
+---
+
+## **Ways to Define Session Timeout**
+
+### **1. Using `setMaxInactiveInterval()` in Servlet**  
+You can set the session timeout programmatically in a servlet.
+
+#### **Example:**  
+```java
+HttpSession session = request.getSession();
+session.setMaxInactiveInterval(300); // Session expires after 300 seconds (5 minutes)
+```
+- This means if the user is inactive for **5 minutes**, the session will be invalidated.
+
+---
+
+### **2. Defining in `web.xml` (Recommended for Global Settings)**  
+You can configure session timeout in the **`web.xml`** deployment descriptor.
+
+#### **Example (`web.xml`):**  
+```xml
+<session-config>
+    <session-timeout>10</session-timeout> <!-- Timeout in minutes -->
+</session-config>
+```
+- This sets the session timeout to **10 minutes** for all users.
+
+---
+
+### **3. Using `invalidate()` to Manually End Session**  
+If needed, you can **manually** invalidate a session before its timeout.
+
+#### **Example:**  
+```java
+session.invalidate(); // Ends the session immediately
+```
+
+---
+This ensures proper session management and prevents unnecessary resource usage.
+
