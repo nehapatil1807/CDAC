@@ -1447,3 +1447,102 @@ public void destroy() {
 
 This process ensures the servlet efficiently handles multiple requests while managing resources effectively.
 
+
+## 43. Who Calls the Servlet Life Cycle Methods?
+
+### **Answer**
+The **Servlet Container (e.g., Tomcat, Jetty, GlassFish, WildFly)** is responsible for calling the servlet life cycle methods automatically at different stages of the servlet's execution.
+
+---
+
+## **Life Cycle Methods and Who Calls Them?**
+
+1. **Loading and Instantiation**
+   - The **Servlet Container** loads the servlet class and creates an instance.
+
+2. **Initialization (`init()`)**
+   - The **Servlet Container** calls `init()` once after instantiation.
+   - Used to initialize resources like database connections.
+
+   ```java
+   @Override
+   public void init(ServletConfig config) throws ServletException {
+       super.init(config);
+       System.out.println("Servlet Initialized");
+   }
+   ```
+
+3. **Request Handling (`service()`)**
+   - The **Servlet Container** calls `service()` for each incoming request.
+   - It determines whether to call `doGet()` or `doPost()` based on the request type.
+
+   ```java
+   @Override
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       response.getWriter().println("Hello from doGet()");
+   }
+   ```
+
+4. **Destruction (`destroy()`)**
+   - The **Servlet Container** calls `destroy()` before the servlet is removed from service.
+   - Used to release resources like closing database connections.
+
+   ```java
+   @Override
+   public void destroy() {
+       System.out.println("Servlet Destroyed");
+   }
+   ```
+
+5. **Garbage Collection**
+   - After `destroy()`, the servlet instance is eligible for garbage collection by the **JVM (Java Virtual Machine)**.
+
+---
+
+## **Conclusion**
+- The **Servlet Container** is responsible for managing the servlet life cycle.
+- It ensures servlets are loaded, initialized, handle requests, and are destroyed properly.
+
+## 45. Which Objects Are Passed to Service Methods?
+
+### **Answer**
+In a servlet, the **`service(HttpServletRequest request, HttpServletResponse response)`** method is called by the **Servlet Container** to handle client requests. The method receives two objects:
+
+---
+
+### **1. `HttpServletRequest` Object**
+- Represents the **incoming request** from the client (browser, API, etc.).
+- Provides methods to retrieve **request parameters, headers, cookies, session data, and input streams**.
+- Determines whether the request is **GET, POST, PUT, DELETE, etc.**.
+
+#### **Example:**
+```java
+@Override
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    String name = request.getParameter("name");  // Getting request parameter
+    response.getWriter().println("Hello, " + name);
+}
+```
+
+---
+
+### **2. `HttpServletResponse` Object**
+- Represents the **outgoing response** sent back to the client.
+- Allows setting **response status, headers, content type, cookies, and output streams**.
+- Used to **redirect** or **send an error response**.
+
+#### **Example:**
+```java
+@Override
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    response.setContentType("text/html");
+    response.getWriter().println("<h1>Post request received</h1>");
+}
+```
+
+---
+
+### **Conclusion**
+- The **Servlet Container** calls `service()` and passes `HttpServletRequest` and `HttpServletResponse` objects.
+- These objects allow interaction between the client and the server, handling **input (request)** and **output (response)** efficiently.
+
