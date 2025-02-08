@@ -1828,3 +1828,89 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 - It is commonly used for **checkboxes, multi-select dropdowns, and repeated form inputs**.
 - If a parameter has a single value, `request.getParameter(String name)` should be used instead.
 
+
+## 49. Servlet Scopes in Java
+
+### **Answer**
+In Java Servlets, scopes define the lifespan and accessibility of attributes stored in different objects. There are four main scopes:
+
+---
+
+## **1. Request Scope (`request` Object)**
+### **Definition:**
+- Attributes stored in the request object exist **only during a single request-response cycle**.
+- Used when data is needed only within a single request.
+
+### **Example:**
+```java
+request.setAttribute("username", "JohnDoe");
+String user = (String) request.getAttribute("username");
+```
+
+### **Use Case:**
+- Passing data between servlets using `RequestDispatcher`.
+
+---
+
+## **2. Session Scope (`session` Object)**
+### **Definition:**
+- Attributes stored in the session object exist **as long as the user session is active**.
+- Session lasts until timeout or explicit invalidation.
+
+### **Example:**
+```java
+HttpSession session = request.getSession();
+session.setAttribute("user", "JohnDoe");
+String user = (String) session.getAttribute("user");
+```
+
+### **Use Case:**
+- Storing user login details across multiple requests.
+
+---
+
+## **3. Application Scope (`servletContext` Object)**
+### **Definition:**
+- Attributes stored in `ServletContext` exist **throughout the lifecycle of the application**.
+- Shared across all users and requests.
+
+### **Example:**
+```java
+ServletContext context = getServletContext();
+context.setAttribute("appName", "MyApp");
+String app = (String) context.getAttribute("appName");
+```
+
+### **Use Case:**
+- Storing global settings like database connection details.
+
+---
+
+## **4. Page Scope (`pageContext` Object)**
+### **Definition:**
+- Attributes stored in `pageContext` exist **only within a single JSP page**.
+- They are not accessible outside the page.
+
+### **Example:**
+```jsp
+<%
+    pageContext.setAttribute("message", "Hello World");
+    String msg = (String) pageContext.getAttribute("message");
+%>
+```
+
+### **Use Case:**
+- Storing temporary data inside JSP pages.
+
+---
+
+## **Conclusion:**
+| Scope | Object | Lifespan | Accessibility |
+|-------|--------|----------|---------------|
+| Request | `HttpServletRequest` | Single request-response cycle | Only in the request |
+| Session | `HttpSession` | User session duration | Across multiple requests from the same user |
+| Application | `ServletContext` | Entire application lifecycle | Shared across all users |
+| Page | `PageContext` | Single JSP page execution | Limited to the page |
+
+Each scope serves different purposes and should be used based on the requirement of the application.
+
