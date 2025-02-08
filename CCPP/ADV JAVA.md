@@ -1068,5 +1068,22 @@ session.invalidate(); // Ends the session immediately
 ```
 
 ---
+
+### **4. Retrieving and Displaying Remaining Session Time**  
+You can retrieve the remaining session time using `getMaxInactiveInterval()` and `getLastAccessedTime()`.
+
+#### **Example:**  
+```java
+HttpSession session = request.getSession();
+long lastAccessedTime = session.getLastAccessedTime();
+int timeout = session.getMaxInactiveInterval(); // in seconds
+long currentTime = System.currentTimeMillis();
+long remainingTime = (timeout * 1000) - (currentTime - lastAccessedTime);
+
+response.getWriter().println("Remaining Session Time: " + (remainingTime / 1000) + " seconds");
+```
+- This calculates and displays the **remaining session time** before expiration.
+
+---
 This ensures proper session management and prevents unnecessary resource usage.
 
