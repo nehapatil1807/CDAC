@@ -963,3 +963,65 @@ String username = (String) session.getAttribute("username");
 - Stores global data accessible across all sessions and requests.
 
 
+## 34. 100 Requests, 100 Clients
+
+### **Answer**  
+When **100 clients** send **100 requests**, the servlet container manages different objects based on their scope:  
+
+1. **100 Request Objects:**  
+   - Each HTTP request generates a new `HttpServletRequest` object.  
+   - These objects exist only during the request-response cycle.  
+
+2. **1 ServletContext Object:**  
+   - There is only **one `ServletContext` object** per web application.  
+   - Shared across all servlets and clients.  
+
+3. **100 Session Objects:**  
+   - Each client gets a unique `HttpSession` object.  
+   - Sessions remain active until they expire or are invalidated.  
+
+---
+
+### **Real-Time Example:**  
+Imagine an **online shopping website** where:  
+- 100 users visit the site (each gets a **new request object**).  
+- The website name and configurations (**ServletContext**) are shared across all users.  
+- Each user’s login session is stored separately (**Session object**).  
+
+#### **Code Demonstration:**  
+
+```java
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.ServletContext;
+
+@WebServlet("/ClientServlet")
+public class ClientServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        // 1. Each request gets a new request object
+        System.out.println("Request Object: " + request);
+
+        // 2. Only one ServletContext object for the entire application
+        ServletContext context = getServletContext();
+        System.out.println("ServletContext: " + context);
+
+        // 3. Each user gets a separate session object
+        HttpSession session = request.getSession();
+        System.out.println("Session ID: " + session.getId());
+
+        response.getWriter().println("Request processed!");
+    }
+}
+```
+
+---
+This example demonstrates how 100 clients making 100 requests result in **100 request objects, 100 session objects, and 1 servlet context object**.
+
+
