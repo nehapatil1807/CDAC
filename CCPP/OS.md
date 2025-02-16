@@ -59,3 +59,28 @@
    - *Example:* Suspended process management.  
 
 
+# Socket, Kernel, and Monolithic Kernel
+
+## 1. What is a Socket?
+A **socket** is an endpoint for communication between two machines over a network. It allows processes to communicate using **IP addresses and ports**.
+
+- Used in **client-server models** for sending and receiving data.
+- Example: Web browsers and servers use **TCP/IP sockets** to transfer data.
+
+---
+
+## 2. What is a Kernel?
+A **kernel** is the core component of an operating system that manages system resources and hardware-software interaction.
+
+- Handles **process management, memory management, device management, and system calls**.
+- Example: **Linux Kernel, Windows NT Kernel**.
+
+---
+
+## 3. What is a Monolithic Kernel?
+A **monolithic kernel** is a type of kernel where all OS components (memory management, process scheduling, file system, etc.) run in **kernel mode** as a single program.
+
+- **Fast but less modular** compared to microkernels.
+- Example: **Linux, Unix, MS-DOS**.
+
+
