@@ -84,3 +84,54 @@ A **monolithic kernel** is a type of kernel where all OS components (memory mana
 - Example: **Linux, Unix, MS-DOS**.
 
 
+
+# Difference Between Process, Program, and Thread
+
+## 1. Process vs. Program vs. Thread
+
+### **What is a Program?**
+A **program** is a set of instructions written in a programming language that performs a specific task when executed.
+- **Stored on disk (passive entity).**
+- Example: A `.exe` file of a text editor.
+
+### **What is a Process?**
+A **process** is an active instance of a program that is being executed by the CPU.
+- **Has its own memory, resources, and execution context.**
+- Example: When you open a text editor, an instance of it runs as a process.
+
+### **What is a Thread?**
+A **thread** is the smallest unit of execution within a process.
+- **Shares memory with other threads of the same process.**
+- Example: A web browser with multiple tabs runs multiple threads within the same process.
+
+---
+
+## 2. Different Types of Processes
+
+### **1. Foreground Process**
+- Requires user interaction.
+- Example: Text editors, browsers.
+
+### **2. Background Process**
+- Runs without user interaction.
+- Example: Antivirus software, system updates.
+
+### **3. System Process**
+- Core OS processes that manage system functionality.
+- Example: Task Manager, Scheduler.
+
+### **4. User Process**
+- Created by user applications.
+- Example: Media player, web applications.
+
+### **5. Single-threaded Process**
+- Contains only one thread of execution.
+- Example: Simple command-line applications.
+
+### **6. Multi-threaded Process**
+- Contains multiple threads sharing the same resources.
+- Example: Web browsers, games.
+
+Would you like more details or examples? 😊
+
+
