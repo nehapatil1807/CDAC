@@ -132,6 +132,36 @@ A **thread** is the smallest unit of execution within a process.
 - Contains multiple threads sharing the same resources.
 - Example: Web browsers, games.
 
-Would you like more details or examples? 😊
+
+
+# Virtual Memory, Thrashing, and Threads
+
+## 1. Virtual Memory
+**Virtual memory** is a memory management technique that extends the physical RAM using disk space. It allows processes to execute even if they exceed the actual RAM capacity by swapping data between RAM and disk storage.
+- **Increases available memory** beyond physical RAM.
+- **Uses paging and segmentation** for efficient memory allocation.
+- **Example:** Running large applications on a system with limited RAM.
+
+---
+
+## 2. Thrashing
+**Thrashing** occurs when excessive paging or swapping between RAM and disk slows down system performance instead of improving it.
+- Happens when a system **spends more time swapping** than executing processes.
+- Caused by **insufficient RAM** or **high multiprogramming levels**.
+- **Solution:** Increase RAM, optimize process scheduling, or reduce multiprogramming.
+
+---
+
+## 3. Threads
+A **thread** is the smallest unit of execution within a process.
+- **Shares memory** and resources with other threads of the same process.
+- **Types of Threads:**
+  - **User-level threads** – Managed by application-level libraries.
+  - **Kernel-level threads** – Managed by the OS kernel.
+- **Example:** A web browser with multiple tabs running as separate threads.
+
+Would you like more details on any of these topics? 😊
+
+
 
 
