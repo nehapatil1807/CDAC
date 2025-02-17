@@ -246,7 +246,43 @@ A deadlock occurs when the following four conditions hold simultaneously:
 - **Printer Spooling:** When multiple print jobs are sent to a printer, they are first stored in a buffer (spool), allowing the CPU to continue executing other tasks while the printer processes jobs sequentially.
 - **Email Spooling:** Emails are stored on a mail server before being forwarded to the recipient when they are available.
 
-Would you like more examples or applications of spooling? 😊
+# Semaphore and Mutex
+
+## 1. What is a Semaphore?
+A **semaphore** is a synchronization mechanism used to manage access to shared resources in concurrent programming. It uses counters to control multiple process access, preventing race conditions.
+
+- **Types of Semaphores:**
+  - **Binary Semaphore** (only 0 or 1 value, similar to mutex)
+  - **Counting Semaphore** (allows multiple resources to be accessed)
+
+---
+
+## 2. What is a Mutex?
+A **mutex (Mutual Exclusion)** is a locking mechanism that allows only one thread to access a resource at a time. It prevents multiple threads from entering a critical section simultaneously.
+
+---
+
+## 3. Differences Between Semaphore and Mutex
+
+| Feature         | Semaphore | Mutex |
+|---------------|----------|-------|
+| Ownership     | No ownership, any thread can release | Owned by the locking thread |
+| Usage        | Multiple processes can access | Only one thread at a time |
+| Types        | Binary & Counting Semaphore | Only one type |
+| Performance  | Can handle multiple threads | Only one thread locks at a time |
+| Example     | Managing resource pools | Thread synchronization in OS |
+
+---
+
+## 4. What is a Binary Semaphore?
+A **Binary Semaphore** is a semaphore with only two values: **0 and 1**.
+- Acts like a mutex but without ownership.
+- Used for **mutual exclusion** and **synchronization**.
+- **Example:** Controlling access to a single resource between two processes.
+
+Would you like more explanations or code examples for these concepts? 😊
+
+
 
 
 
