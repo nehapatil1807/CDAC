@@ -474,8 +474,19 @@ A Real-Time Operating System (RTOS) is an operating system designed to meet stri
 - Robotics
 
 
+# Difference Between Main Memory and Secondary Memory
 
-
+| **Feature**              | **Main Memory**                           | **Secondary Memory**                          |
+|--------------------------|-------------------------------------------|-----------------------------------------------|
+| **Definition**           | Primary storage used by the CPU for immediate data processing. | Permanent storage used for long-term data storage. |
+| **Types**                | RAM (Random Access Memory), Cache Memory  | Hard Disk, SSD, Optical Discs (CD/DVD), USB Flash Drive |
+| **Speed**                | Fast access, faster than secondary memory. | Slower access compared to main memory.       |
+| **Volatility**           | Volatile – data is lost when the system is powered off. | Non-volatile – data is retained even when the system is powered off. |
+| **Capacity**             | Limited, typically ranging from a few GBs to tens of GBs. | Larger storage capacity, ranging from GBs to TBs. |
+| **Purpose**              | Used by the CPU for executing processes and tasks. | Used for storing data and programs permanently. |
+| **Cost**                 | More expensive per unit of storage.       | Less expensive per unit of storage.          |
+| **Access Method**        | Direct access (random access).            | Sequential or random access, depending on the type (e.g., HDD vs SSD). |
+| **Examples**             | RAM, Cache Memory.                       | Hard Disk, Solid-State Drive, Optical Discs.  |
 
 
 
