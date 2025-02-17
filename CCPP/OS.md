@@ -490,6 +490,54 @@ A Real-Time Operating System (RTOS) is an operating system designed to meet stri
 
 
 
+# Operating System Concepts
+
+## 1. Dynamic Binding
+- **Definition**: Dynamic binding (also known as late binding) is the process of associating a method call to its corresponding function or code at runtime, instead of at compile-time. This allows for more flexibility and supports features like polymorphism in object-oriented programming.
+- **Example**: In Java, method calls are dynamically bound based on the actual object type at runtime.
+
+## 2. FCFS Scheduling (First-Come, First-Served)
+- **Definition**: FCFS is a non-preemptive scheduling algorithm where the process that arrives first is executed first. It operates in a simple manner and doesn't involve priority.
+- **Characteristics**:
+  - **Simple** and easy to implement.
+  - Can lead to **convoy effect** (longer processes delay shorter ones).
+  - Non-preemptive, i.e., once a process starts, it runs to completion.
+- **Example**: If processes arrive in the order P1, P2, P3, the CPU executes them in that order.
+
+## 3. SJF Scheduling (Shortest Job First)
+- **Definition**: SJF is a non-preemptive scheduling algorithm where the process with the shortest burst time (CPU time) is selected next for execution. 
+- **Characteristics**:
+  - **Minimizes average waiting time**.
+  - Can cause **starvation** for long processes if short ones keep arriving.
+- **Example**: If process P1 has burst time 2ms, P2 has 5ms, and P3 has 1ms, P3 will be executed first.
+
+## 4. SRTF Scheduling (Shortest Remaining Time First)
+- **Definition**: SRTF is a preemptive version of SJF. It selects the process with the smallest remaining time to completion for execution next. If a new process arrives with a shorter burst time, the currently running process is preempted.
+- **Characteristics**:
+  - **Preemptive**, which can result in better response times for short processes.
+  - Can still cause **starvation** for longer processes.
+- **Example**: If a process P1 with remaining time of 5ms is running, and a new process P2 with 3ms arrives, P1 will be preempted in favor of P2.
+
+## 5. LRTF Scheduling (Longest Remaining Time First)
+- **Definition**: LRTF is the opposite of SRTF. It schedules the process with the longest remaining time for execution.
+- **Characteristics**:
+  - **Preemptive** in nature.
+  - Tends to cause **starvation** for shorter processes and leads to inefficiencies.
+- **Example**: If a process P1 has remaining time 10ms and P2 has 3ms, P1 will be executed first, even though P2 is ready.
+
+## 6. Priority Scheduling
+- **Definition**: Priority scheduling assigns a priority to each process, and the process with the highest priority (numerically or logically) is selected next for execution. It can be either preemptive or non-preemptive.
+- **Characteristics**:
+  - **Starvation** can occur for low-priority processes.
+  - Priorities can be **static** (fixed) or **dynamic** (change over time).
+- **Example**: If process P1 has priority 3 and P2 has priority 1, P1 will be executed before P2.
+
+## 7. Round Robin Scheduling
+- **Definition**: Round Robin (RR) is a preemptive scheduling algorithm where each process is assigned a fixed time slice (quantum). The CPU switches between processes after each time slice, ensuring fairness.
+- **Characteristics**:
+  - **Fair** in that each process gets an equal opportunity to execute.
+  - **Context switching** overhead can be high if the time slice is too small.
+- **Example**: If processes P1, P2, P3 are in the queue and the time quantum is 2ms, each process will get 2ms of CPU time in a cyclic order.
 
 
 
