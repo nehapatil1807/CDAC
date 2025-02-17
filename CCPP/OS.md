@@ -160,8 +160,57 @@ A **thread** is the smallest unit of execution within a process.
   - **Kernel-level threads** – Managed by the OS kernel.
 - **Example:** A web browser with multiple tabs running as separate threads.
 
-Would you like more details on any of these topics? 😊
 
 
+ # RAID (Redundant Array of Independent Disks) and Deadlock
 
+## 1. What is RAID?
+**RAID (Redundant Array of Independent Disks)** is a data storage virtualization technology that combines multiple physical hard drives into a single logical unit for performance improvement, redundancy, or both.
+- Used for **data protection, fault tolerance, and improved performance**.
+- Commonly used in **servers, data centers, and high-performance computing**.
+
+---
+
+## 2. Different Types of RAID
+
+### **1. RAID 0 (Striping)**
+- Data is split across multiple disks to improve performance.
+- **No redundancy** – failure of one disk results in data loss.
+- **Use Case:** High-speed applications (e.g., gaming, video editing).
+
+### **2. RAID 1 (Mirroring)**
+- Data is duplicated across two disks for fault tolerance.
+- Provides **high redundancy** but reduces usable storage.
+- **Use Case:** Critical data storage (e.g., financial records, databases).
+
+### **3. RAID 5 (Striping with Parity)**
+- Data and parity (error-checking information) are distributed across multiple disks.
+- Can tolerate **one disk failure** without data loss.
+- **Use Case:** Balanced performance and redundancy (e.g., file servers).
+
+### **4. RAID 6 (Striping with Double Parity)**
+- Similar to RAID 5 but with **two parity blocks**, allowing recovery from two disk failures.
+- **Use Case:** High-availability systems (e.g., enterprise storage solutions).
+
+### **5. RAID 10 (RAID 1+0 – Mirroring and Striping)**
+- Combines **RAID 1 (mirroring) and RAID 0 (striping)**.
+- Provides **high performance and redundancy** but requires more disks.
+- **Use Case:** Mission-critical applications (e.g., high-speed databases, cloud storage).
+
+---
+
+## 3. What is a Deadlock?
+A **deadlock** is a situation in which two or more processes are unable to proceed because each is waiting for resources that the other holds.
+- Leads to **permanent blocking** of processes.
+- Common in **multi-threaded and distributed systems**.
+
+### **4. Conditions for Deadlock**
+A deadlock occurs when the following four conditions hold simultaneously:
+
+1. **Mutual Exclusion** – Only one process can use a resource at a time.
+2. **Hold and Wait** – A process holding at least one resource is waiting for additional resources held by other processes.
+3. **No Preemption** – A resource cannot be forcibly taken from a process; it must be released voluntarily.
+4. **Circular Wait** – A circular chain of two or more processes exists where each process is waiting for a resource held by the next in the chain.
+
+Would you like more details or solutions to prevent deadlocks? 😊
 
