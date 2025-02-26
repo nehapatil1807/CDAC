@@ -167,4 +167,37 @@ Spring MVC follows a structured request handling process:
 _Real-time Example_: When a user logs into a banking application, the login request is processed by `DispatcherServlet`, mapped to a `LoginController`, authenticated, and forwarded to a `dashboard.jsp` view for rendering.
 
 ---
+13. What is the Difference Between SOAP and REST? What is the Significance of RestController?
+
+SOAP (Simple Object Access Protocol): Uses XML for communication, strict standards.
+
+REST (Representational State Transfer): Uses JSON, more flexible and lightweight.
+
+@RestController: Used in Spring Boot to create RESTful APIs by combining @Controller and @ResponseBody.
+
+14. What is Spring Boot? What Do You Mean by Opinionated Defaults? How Auto-Configuration Works?
+
+Spring Boot: Framework for creating standalone Spring applications with minimal configuration.
+
+Opinionated Defaults: Pre-configured settings reduce the need for manual setup.
+
+Auto-Configuration: Automatically configures beans based on dependencies present in the classpath.
+
+15. What is the Significance of @CrossOrigin? How It Works?
+
+@CrossOrigin: Allows handling of Cross-Origin Resource Sharing (CORS) issues in REST APIs.
+
+Usage: Enables requests from different domains to access the API.
+
+Example:
+
+@CrossOrigin(origins = "http://example.com")
+@RestController
+class MyController {
+    @GetMapping("/data")
+    public String getData() {
+        return "Hello World";
+    }
+}
+
 
