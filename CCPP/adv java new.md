@@ -168,8 +168,7 @@ _Real-time Example_: When a user logs into a banking application, the login requ
 
 ---
 
-##
-13. What is the Difference Between SOAP and REST? What is the Significance of RestController?
+## 13. What is the Difference Between SOAP and REST? What is the Significance of RestController?
 
 SOAP (Simple Object Access Protocol): Uses XML for communication, strict standards.
 
@@ -179,7 +178,7 @@ REST (Representational State Transfer): Uses JSON, more flexible and lightweight
 
 ---
 
-##14. What is Spring Boot? What Do You Mean by Opinionated Defaults? How Auto-Configuration Works?
+## 14. What is Spring Boot? What Do You Mean by Opinionated Defaults? How Auto-Configuration Works?
 
 Spring Boot: Framework for creating standalone Spring applications with minimal configuration.
 
@@ -189,7 +188,7 @@ Auto-Configuration: Automatically configures beans based on dependencies present
 
 ---
 
-##15. What is the Significance of @CrossOrigin? How It Works?
+## 15. What is the Significance of @CrossOrigin? How It Works?
 
 @CrossOrigin: Allows handling of Cross-Origin Resource Sharing (CORS) issues in REST APIs.
 
