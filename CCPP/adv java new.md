@@ -180,11 +180,29 @@ REST (Representational State Transfer): Uses JSON, more flexible and lightweight
 
 ## 14. What is Spring Boot? What Do You Mean by Opinionated Defaults? How Auto-Configuration Works?
 
-Spring Boot: Framework for creating standalone Spring applications with minimal configuration.
+Spring Boot is a framework that simplifies Java application development by providing built-in configurations and reducing boilerplate code.
 
-Opinionated Defaults: Pre-configured settings reduce the need for manual setup.
+Opinionated Defaults
 
-Auto-Configuration: Automatically configures beans based on dependencies present in the classpath.
+Spring Boot follows "opinionated defaults," meaning it automatically applies sensible default configurations so developers don’t have to configure everything manually.
+
+Example: Spring Boot sets up an embedded Tomcat server without requiring additional configuration.
+
+Auto-Configuration
+
+Spring Boot automatically configures components based on classpath dependencies.
+
+Example: If Spring Data JPA is found on the classpath, Spring Boot configures Hibernate as the default JPA provider.
+
+Example:
+
+@SpringBootApplication
+public class MyApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApplication.class, args);
+    }
+}
+
 
 ---
 
